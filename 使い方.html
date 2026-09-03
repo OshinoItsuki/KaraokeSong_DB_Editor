@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>YukariSong DB Editor ヘルプ</title>
+<style>
+body{font-family:"Yu Gothic UI",Meiryo,sans-serif;line-height:1.75;margin:0;color:#222;background:#f5f7fa}
+main{max-width:980px;margin:0 auto;background:#fff;padding:32px 48px;box-shadow:0 0 18px #ccd3dc}
+h1{color:#1f4e78;border-bottom:4px solid #5b9bd5;padding-bottom:10px}h2{margin-top:36px;color:#305496;border-bottom:1px solid #ccd6e0}h3{color:#548235}code,pre{font-family:Consolas,monospace;background:#f0f2f5}code{padding:2px 5px}pre{padding:14px;overflow:auto;border-left:4px solid #5b9bd5}.note{background:#fff4ce;border-left:5px solid #f4b183;padding:12px 16px}.ok{background:#e2f0d9;border-left:5px solid #70ad47;padding:12px 16px}table{border-collapse:collapse;width:100%}th,td{border:1px solid #c9d2dc;padding:8px;text-align:left}th{background:#d9eaf7}a{color:#0563c1}.license{white-space:pre-wrap;font-family:Consolas,monospace;font-size:.9em;background:#f7f7f7;padding:16px}
+
+    .section {
+      margin-top: 24px;
+    }
+    .note.warning {
+      margin-top: 12px;
+      padding: 12px 14px;
+      border: 1px solid #d6a23a;
+      border-radius: 8px;
+      background: #fff8e8;
+    }
+    .note.warning p {
+      margin: 6px 0 0;
+    }
+
+  </style>
+</head>
+<body><main>
+<h1>YukariSong DB Editor</h1>
+<p>ゆかりスターのエクスポートファイル（<code>.ylexa</code>）に含まれるSQLiteデータベースを、画面上またはExcelで編集するためのツールです。</p>
+<div class="note"><strong>保存:</strong> ［上書き保存］では現在開いているファイルへ保存し、［名前を付けて保存］では別名で保存できます。</div>
+<h2>基本的な使い方</h2>
+<ol><li>［開く］で <code>.ylexa</code> を選択します。</li><li>曲、人物、タイアップ、タグ、各関連データなどのタブを開きます。</li><li>［追加］［編集］［有効化／無効化］［削除］でデータを変更します。</li><li>［上書き保存］または［名前を付けて保存］で編集内容を保存します。</li></ol>
+<h2>画面上での編集</h2>
+<p>Excelと同じ分類でタブが分かれています。各タブには検索、追加、編集、有効化／無効化、完全削除があります。</p>
+<h3>IDの自動採番</h3>
+<p>曲・人物・タイアップ・タグ・メーカー・別名データを追加すると、現在のDB内にある同じ接頭辞の最大番号へ1を加えたIDが自動生成されます。</p>
+<pre>設定した接頭文字が MyName の場合: MyName_P_120 が最大 → 次の人物IDは MyName_P_121</pre>
+<p>歌手関連などの関連表では、曲IDを入力すると、その曲で使用中の最大sequence番号＋1が自動設定されます。</p>
+<h3>有効化／無効化と削除について</h3>
+<p>［有効化／無効化］は、選択行の無効値を0と1で切り替えます。無効行はツールとExcelでグレー表示され、有効に戻すとグレー表示が解除されます。</p>
+<p>［削除］はDBから完全に消す危険な操作です。赤文字の警告画面で確認チェックを入れない限り削除ボタンは押せません。Deleteキーには削除操作を割り当てていません。</p>
+<h2>各タブの役割</h2>
+<table><tr><th>タブ</th><th>内容</th></tr>
+<tr><td>曲</td><td>曲名、読み、キーワード、タイアップID、区分など</td></tr>
+<tr><td>人物</td><td>歌手・作詞・作曲・編曲で共通利用される人物マスター</td></tr>
+<tr><td>タイアップ</td><td>作品名、固定カテゴリ（未設定＋9種類）、メーカーなど</td></tr>
+<tr><td>タグ</td><td>タグのマスター</td></tr>
+<tr><td>メーカー</td><td>タイアップから参照されるメーカー情報</td></tr>
+<tr><td>歌手・作詞・作曲・編曲関連</td><td>曲IDと人物IDの対応</td></tr>
+<tr><td>タグ関連</td><td>曲IDとタグIDの対応</td></tr>
+<tr><td>各別名</td><td>別名と元データIDの対応</td></tr></table>
+<h2>Excel編集</h2>
+<p>［Excel書き出し］で現在のDBを出力し、編集後に［Excel取り込み］で反映できます。［新規入力テンプレート］では空の入力ブックを作成します。</p>
+<div class="ok"><strong>青色の列:</strong> 入力・編集する列<br><strong>緑色の列:</strong> IDから名称を自動表示する確認用列</div>
+<p>確認用列には数式が設定されています。例えば歌手関連シートで曲IDと人物IDを入力すると、右側に曲名と人物名が表示されます。表示名は参照先シートへのリンクにもなっています。</p>
+<h3>Excelで守ること</h3>
+<ul><li>シート名を変更しない。</li><li>1行目と非表示の2行目を変更しない。</li><li>既存行の主キーIDを変更しない。</li><li>確認用の緑列を直接入力しない。</li><li>無効列は0または1で入力する。1の行は自動的にグレー表示される。</li></ul>
+<h2>データ構造と安全性</h2>
+<p><code>.ylexa</code> はZIP形式で、内部に <code>ExportMusicInfo.sqlite3</code> が入っています。本ツールは作業用フォルダへ展開して編集し、保存時にSQLite整合性とZIP整合性を確認します。</p>
+<p>人物名は歌手・作詞・作曲・編曲で共有されます。同じ人物を複数曲へ紐付ける場合は、人物マスターを重複登録せず、関連表から同じ人物IDを参照してください。</p>
+<p><strong>一括追加の複数値区切り:</strong> 歌手・作詞・作曲・編曲・タグ・シリーズなどを1セルに複数入力する場合は、一括追加画面で指定した区切り文字だけを使用します。初期値は半角セミコロン <code>;</code> です。名称自体に含まれる文字で誤分割しないよう、指定文字以外は区切りとして扱いません。</p>
+<h2>ライセンス</h2>
+<div class="license">MIT License
+
+Copyright (c) 2026 楽曲情報DBエディタ contributors
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.</div>
+
+      <section class="section">
+        <h2>独自拡張テーブルとゆかりスター互換出力</h2>
+        <p>
+          <code>.kvbd</code> では独自追加テーブルを保持できます。
+          <code>.ylexa</code> へ保存する場合も追加テーブルは削除されず、そのままファイルに含まれます。
+        </p>
+        <div class="note warning">
+          <strong>注意</strong>
+          <p>
+            独自追加テーブルを含む <code>.ylexa</code> をゆかりスターで読み込み、
+            ゆかりスター側から再エクスポートすると、
+            ゆかりスターが認識しない独自テーブルは失われます。
+          </p>
+        </div>
+      </section>
+
+    </main>
+</body></html>
