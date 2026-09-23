@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>YukariSong DB Editor ヘルプ</title>
+<title>楽曲情報DBエディタ ヘルプ</title>
 <style>
 body{font-family:"Yu Gothic UI",Meiryo,sans-serif;line-height:1.75;margin:0;color:#222;background:#f5f7fa}
 main{max-width:980px;margin:0 auto;background:#fff;padding:32px 48px;box-shadow:0 0 18px #ccd3dc}
@@ -23,10 +23,22 @@ h1{color:#1f4e78;border-bottom:4px solid #5b9bd5;padding-bottom:10px}h2{margin-t
       margin: 6px 0 0;
     }
 
-  </style>
+  
+    .change-history { margin-top: 36px; }
+    .change-version { margin-top: 18px; }
+    .change-version h3 { margin-bottom: 6px; color: #3f6b2a; }
+    .change-version ul { margin-top: 4px; }
+    .license-note {
+      background:#fff4ce;
+      border-left:5px solid #f4b183;
+      padding:12px 16px;
+      margin:10px 0 14px;
+    }
+
+</style>
 </head>
 <body><main>
-<h1>YukariSong DB Editor</h1>
+<h1>楽曲情報DBエディタ</h1>
 <p>ゆかりスターのエクスポートファイル（<code>.ylexa</code>）に含まれるSQLiteデータベースを、画面上またはExcelで編集するためのツールです。</p>
 <div class="note"><strong>保存:</strong> ［上書き保存］では現在開いているファイルへ保存し、［名前を付けて保存］では別名で保存できます。</div>
 <h2>基本的な使い方</h2>
@@ -60,30 +72,7 @@ h1{color:#1f4e78;border-bottom:4px solid #5b9bd5;padding-bottom:10px}h2{margin-t
 <p><code>.ylexa</code> はZIP形式で、内部に <code>ExportMusicInfo.sqlite3</code> が入っています。本ツールは作業用フォルダへ展開して編集し、保存時にSQLite整合性とZIP整合性を確認します。</p>
 <p>人物名は歌手・作詞・作曲・編曲で共有されます。同じ人物を複数曲へ紐付ける場合は、人物マスターを重複登録せず、関連表から同じ人物IDを参照してください。</p>
 <p><strong>一括追加の複数値区切り:</strong> 歌手・作詞・作曲・編曲・タグ・シリーズなどを1セルに複数入力する場合は、一括追加画面で指定した区切り文字だけを使用します。初期値は半角セミコロン <code>;</code> です。名称自体に含まれる文字で誤分割しないよう、指定文字以外は区切りとして扱いません。</p>
-<h2>ライセンス</h2>
-<div class="license">MIT License
-
-Copyright (c) 2026 楽曲情報DBエディタ contributors
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.</div>
-
-      <section class="section">
+<section class="section">
         <h2>独自拡張テーブルとゆかりスター互換出力</h2>
         <p>
           <code>.kvbd</code> では独自追加テーブルを保持できます。
@@ -122,7 +111,7 @@ SOFTWARE.</div>
         <p>一覧で1件を選択し「複製して新規追加」を実行すると、複製専用画面が開きます。</p>
         <ul>
           <li>各項目の「複製元と同じ」にチェックすると、その項目を複製元からコピーします。</li>
-          <li>曲のタグには「複製元と同じ」チェックはありません。新しい曲側で必要なタグを選択してください。</li>
+          <li>曲のタグは「複製元と同じ」が初期状態でONになり、複製元のタグを引き継ぎます。必要に応じてチェックを外して編集できます。</li>
           <li>曲では歌手・作詞・作曲・編曲も個別に複製できます。</li>
           <li>複製元とタグを含む内容が完全に同じ場合は保存できません。タイトル、タグ、その他のいずれかが異なれば保存できます。</li>
         </ul>
@@ -161,6 +150,214 @@ SOFTWARE.</div>
           「別名義」「所属グループ」「所属メンバー」を直接編集できます。
           左側のタグパネルから編集した場合と同じ人物関係テーブルへ保存されます。
         </p>
+      </section>
+
+    
+      <section class="section">
+        <h2>DBファイルをドラッグ＆ドロップで開く</h2>
+        <p>
+          起動直後などDBをまだ開いていない状態では、<code>.kvbd</code> または
+          <code>.ylexa</code> をメイン画面へドラッグ＆ドロップして開けます。
+          対応していないファイルは無視されます。
+        </p>
+      </section>
+      <section class="section">
+        <h2>Excelで既存データをまとめて更新する</h2>
+        <p>
+          既存DBをExcelへ書き出して編集し、再取り込みするとIDごとに比較します。
+          ふりがな・日付・カテゴリなどはツールと同じ保存形式へ正規化してから比較し、
+          正規化後に差分が無い行はDBへUPDATEしません。
+        </p>
+        <p>
+          不正な日付、カタカナとして扱えないふりがな、存在しない参照IDなどは
+          エラーとしてスキップされます。既存IDのエラーはエラー一覧から該当レコードを
+          個別編集画面で開いて修正できます。
+        </p>
+      </section>
+
+    
+      <section class="section">
+        <h2>Excel取込時のふりがな正規化</h2>
+        <p>
+          Excelから取り込むふりがなは、DBへ反映する前に通常編集と同じ保存形式へ正規化します。
+          ひらがなはカタカナへ変換し、「～」「〜」は長音記号「ー」へ変換します。
+          それでも残る非カタカナ文字は除去し、その結果から検索用ふりがなも再生成します。
+          差分判定は正規化後の値で行うため、正規化後に既存DBと同じ値になる行は更新しません。
+        </p>
+      </section>
+
+    
+      <section class="section">
+        <h2>タグパネルの左右配置</h2>
+        <p>
+          タグパネル右上の「≡」から「左側に表示」「右側に表示」を選択できます。
+          初期状態は左側です。変更した配置は設定へ保存され、次回起動時にも同じ側へ表示されます。
+          「×」では従来どおりタグパネルを非表示にできます。
+        </p>
+      </section>
+
+    
+      <section class="section">
+        <h2>タイアップ名からシリーズを作成</h2>
+        <p>
+          タイアップの一括書き込み画面で「タイアップ名から新規」を使用すると、
+          選択したタイアップの名称をシリーズ名へ、タイアップよみをシリーズよみへ引き継ぎます。
+          元のタイアップよみが空欄の場合は、シリーズよみも空欄で開始します。
+        </p>
+      </section>
+
+    
+      <section class="section">
+        <h2>複数関連項目の並び順</h2>
+        <p>曲の歌手・作詞・作曲・編曲・タグ、およびタイアップのシリーズは、選択済みチップの「↑」「↓」で順番を変更できます。保存した順番はDBのsequence値（0,1,2...）として保持され、再読込時も同じ順序で表示されます。</p>
+      </section>
+
+    
+      <section class="section">
+        <h2>カテゴリ細分類（KVDB独自機能）</h2>
+        <p>
+          既存カテゴリは大分類としてそのまま使用し、その下へKVDB独自の細分類を追加できます。
+          例: 「001 アニメ」→「001 TV」「002 OVA」「003 劇場」。
+          上位細分類も指定できるため、必要に応じてさらに階層化できます。
+        </p>
+        <p>
+          タイアップ編集画面とタグパネルから細分類を紐づけます。
+          大分類と一致しない細分類は保存できません。
+        </p>
+      </section>
+
+    
+      <section class="section">
+        <h2>タグから複製曲のキーワードを設定</h2>
+        <p>
+          ［ツール］→［設定］で
+          「曲の複製時、キーワードが未変更ならタグ名で区別する」
+          を有効にできます。初期状態はオフです。
+        </p>
+        <p>
+          ゆかりスター互換DBで有効です。曲キーワードが空欄の場合はタグ名を設定し、
+          キーワードが複製元と同じ場合は元キーワードの後ろへタグ名を追加します。
+          KVDBではこの自動コピーは行いません。
+        </p>
+      </section>
+
+    
+      <section class="section">
+        <h2>KVDBの同名曲判定</h2>
+        <p>
+          KVDB形式では、曲名が同じでも歌手・タイアップ・作詞・作曲・編曲・タグなど
+          他の情報で区別できる場合は、曲キーワードを入力しなくても別曲として登録できます。
+        </p>
+        <p>
+          ID以外の曲情報が既存曲とすべて同じ場合だけ登録を止め、
+          区別できるキーワードの入力を求めます。
+          ゆかりスター互換形式では従来どおり、同じ名称を登録するときは
+          キーワードで区別する方式を使用します。
+        </p>
+        <p>
+          「曲の複製時、キーワードが未変更ならタグ名で区別する」設定は
+          ゆかりスター互換DBでのみ動作し、KVDBでは使用しません。
+        </p>
+      </section>
+
+    
+      <section class="section">
+        <h2>一括書き込みで空欄に置換</h2>
+        <p>
+          一括書き込みでは、入力欄が空欄でも「すべて上書き」または
+          「置換」を選択すると、現在登録されている値を空欄へ置き換えます。
+          歌手・作詞・作曲・編曲・タグ・シリーズなどの複数関連項目は、
+          空欄で「置換」すると現在の紐づけをすべて解除します。
+        </p>
+        <p>
+          空欄の上書き／置換をプレビューへ反映するときは確認警告を表示します。
+          キャンセルした場合は変更しません。
+        </p>
+      </section>
+
+    
+      <section class="section">
+        <h2>一括書き込みの指定タグ置換</h2>
+        <p>
+          曲の一括書き込み画面では［指定タグ置換...］から、
+          置換元タグと置換先タグを指定できます。
+          対象曲に付いている置換元タグだけを差し替え、
+          その他のタグと並び順は維持します。
+        </p>
+        <p>
+          置換元タグが付いていない曲はスキップします。
+          置換先タグが既に付いている場合は二重登録せず1件に整理します。
+          通常の一括書き込みと同様に、まずプレビューへ反映してから
+          ［決定］でDBへ書き込みます。
+        </p>
+      </section>
+
+    
+      <section class="section change-history">
+        <h2>更新履歴</h2>
+        <p>
+          公開版での主な変更履歴です。新しいバージョンから順に記載しています。
+        </p>
+        <section class="change-version"><h3>v2.0.10</h3><ul><li>公開版ヘルプのライセンス表示をページ最下部へ移動</li><li>ヘルプのライセンスを日本語参考訳 → 英語MIT License原文の順に変更</li><li>日本語ライセンスに「参考訳であり正式条件は英語原文」と明記</li><li>ヘルプへ更新履歴を追加</li><li>公開版README.mdへ更新履歴を追加</li><li>公開版README.mdのバージョン表記をv2.0.10へ更新</li><li>ヘルプ内の曲複製タグ説明を現在仕様（タグも初期継承）へ更新</li></ul></section>
+<section class="change-version"><h3>v2.0.9</h3><ul><li>v2.0.8で追加した個別編集画面の［タグ置換...］を削除</li><li>曲の一括書き込み画面へ［指定タグ置換...］を追加</li><li>置換元タグと置換先タグを1件ずつ指定し、選択中の曲（未選択時は表示中すべて）へ一括適用</li><li>置換元タグが付いていない曲はスキップ</li><li>他のタグは保持し、置換元タグがあった位置へ置換先タグを入れて並び順を維持</li><li>置換先タグが既に付いている場合は重複させず1件に整理</li><li>指定タグ置換も通常の一括書き込みと同じく、いったんプレビューへ反映してから［決定］でDBへ反映</li><li>通常のタグ［追加］［置換］と指定タグ置換を同じ曲へ重ねた場合は、後からプレビューへ指定した操作を優先</li><li>置換先には人物・タイアップ・シリーズ由来の仮タグ候補も利用可能で、DB反映時に通常タグへ変換</li></ul></section>
+<section class="change-version"><h3>v2.0.8</h3><ul><li>曲の追加・編集・複製画面のタグ欄に［タグ置換...］を追加</li><li>現在付いているタグを1件選び、別のタグへ直接置換可能</li><li>置換時は他のタグを残し、元タグがあった並び位置も維持</li><li>置換先タグが既に付いている場合は重複登録せず、置換元タグだけを削除</li><li>曲の複製画面でタグを置換した場合は「複製元と同じ」のチェックを自動でOFF</li><li>通常のタグ追加・削除・並び替え操作は従来どおり利用可能</li></ul></section>
+<section class="change-version"><h3>v2.0.7</h3><ul><li>曲の「複製して作成」でタグにも「複製元と同じ」チェックを追加</li><li>タグの「複製元と同じ」は初期状態でON</li><li>複製画面を開いた時点で、複製元のタグを新しい曲へ引き継ぐ状態に変更</li><li>タグのチェックを外した後は、タグ欄を自由に追加・削除可能</li><li>［全チェック］の対象にもタグを含めるよう変更</li><li>［全解除］ボタンを廃止</li><li>個別チェックを外しただけでは入力済み値を消さない従来仕様は維持</li></ul></section>
+<section class="change-version"><h3>v2.0.6</h3><ul><li>一括書き込みで、空欄のまま［すべて上書き］を選んだ場合に既存値を空欄へ置き換えるよう変更</li><li>複数関連項目では、空欄のまま［置換］を選ぶと既存の紐づけをすべて解除</li><li>対応対象: ふりがな、キーワード、カテゴリー、タイアップ、歌手、作詞、作曲、編曲、タグ、メーカー、シリーズ</li><li>空欄＋上書き／置換を［書き込み］でプレビューへ反映する前に警告を表示</li><li>警告には空欄化する項目名を列挙し、「現在登録されている値を空欄に置き換えます」と明示</li><li>警告をキャンセルした場合はプレビューにも反映せず、DBも変更しない</li><li>プレビューには空欄化予定を「（空欄）」として表示</li><li>既に空欄の対象を空欄へ置換する場合はスキップ件数として扱う</li></ul></section>
+<section class="change-version"><h3>v2.0.5</h3><ul><li>KVDB形式の曲重複判定をYukariStar互換形式と分離</li><li>KVDBでは同じ曲名・同じキーワードでも、歌手・タイアップ・作詞・作曲・編曲・タグなど他の情報が異なれば別曲として保存可能</li><li>KVDBでID以外の曲情報がすべて一致する場合だけ保存を止め、区別用キーワードの入力を要求</li><li>曲本体だけでなく歌手・作詞・作曲・編曲・タグのsequenceも完全一致判定へ含める</li><li>曲名よみ・発売日・タイアップ・区分・無効状態など曲本体の情報も完全一致判定へ含める</li><li>KVDBの通常追加・複製・個別編集・タグパネル編集で新しい判定を使用</li><li><code>.ylexa</code>では従来どおり「同じ名称＋同じキーワード」の重複ルールを維持</li><li>「複製曲のタグからキーワードを自動生成」設定はKVDBでは実行せず、ゆかりスター互換DBでのみ使用</li><li>KVDBで同名曲が存在する場合の画面警告を、新しい重複ルールに合わせて変更</li></ul></section>
+<section class="change-version"><h3>v2.0.4</h3><ul><li>「曲の複製時、キーワードが未変更ならタグ名で区別する」設定の動作を拡張</li><li>複製時に曲キーワードが空欄の場合は、従来どおり現在のタグ名をキーワードへ設定</li><li>曲キーワードが空欄でなくても複製元と完全一致している場合は、元キーワードの後ろへ現在のタグ名を追加</li><li>曲キーワードを複製画面で手動変更済みの場合は、自動変更せず入力値を優先</li><li>既にキーワード内に同じタグ名が含まれている場合は二重追加しない</li><li>複製元との同一判定より前に自動調整するため、タグ由来キーワードで別曲として登録可能</li></ul></section>
+<section class="change-version"><h3>v2.0.3</h3><ul><li>設定に「曲の複製時、キーワードが空欄ならタグ名をキーワードへコピーする」を追加</li><li>新設定の標準値はOFF</li><li>設定ON時、曲の「複製して作成」で曲キーワードが空欄かつタグが1件以上ある場合、現在選択されているタグ名を曲キーワードへ自動コピー</li><li>複製元のタグではなく、複製画面で追加・削除した後の現在のタグを使用</li><li>複数タグは空白区切りで格納</li><li>同名タグはキーワード内で重複させない</li><li>既に曲キーワードが入力されている場合は手入力値を優先</li><li>自動生成したキーワードは複製元との同一判定より前に反映し、DB上でも区別用キーワードとして保存</li></ul></section>
+<section class="change-version"><h3>v2.0.2</h3><ul><li>「複製して作成」画面へ［全チェック］［全解除］ボタンを追加</li><li>［全チェック］で画面内のすべての「複製元と同じ」をONにし、複製元の値を各入力欄へ一括反映</li><li>［全解除］で画面内のすべての「複製元と同じ」をOFF</li><li>通常項目だけでなく、シリーズ・カテゴリ細分類・人物関係など「複製元と同じ」チェックが付く関連項目も一括操作対象</li><li>個別チェックの従来動作はそのまま維持</li></ul></section>
+<section class="change-version"><h3>v2.0.1</h3><ul><li>「カテゴリ細分類」の追加画面で［保存］を押しても登録できない問題を修正</li><li>原因は、上位細分類欄の<code>TokenMultiSelect</code>を通常テキスト欄として読み取ろうとしていたこと</li><li>個別編集画面の参照フィールド取得を個別列名判定から<code>TokenMultiSelect</code>型判定へ統一</li><li>カテゴリ細分類の「上位細分類」は選択された<code>category_detail_id</code>を正しく保存</li><li>「大分類」も既存カテゴリと同じく表示名からカテゴリIDへ変換して保存</li><li>今後単一参照フィールドを追加した場合も同種の保存漏れが起こりにくい構造へ改善</li></ul></section>
+<section class="change-version"><h3>v2.0.0</h3><ul><li>KVDB独自の階層型「カテゴリ細分類」を追加</li><li>既存の<code>tie_up_category_id</code>は大分類としてそのまま維持し、YukariStar互換領域を変更しない</li><li><code>kvdb_category_detail</code>に細分類ID・大分類・上位細分類・名称・表示順・無効を保存</li><li><code>kvdb_category_detail_sequence</code>でタイアップと細分類を複数・順序付きで紐づけ</li><li>細分類IDは<code>[ID接頭文字]_CD_[数字]</code>で採番</li><li>「カテゴリ細分類」タブを追加</li><li>上位細分類を任意指定可能で、3階層以上にも拡張可能</li><li>タイアップのタグパネルと個別編集画面へ「カテゴリ細分類」を追加</li><li>タイアップの大分類に属する細分類だけを候補表示</li><li>大分類と一致しない細分類は保存時エラー</li><li>表示は「001 アニメ &gt; 001 TV」の階層形式</li><li>高度なタブに「カテゴリ細分類関連」を追加</li><li><code>.ylexa</code>では独自テーブルを自動追加せず、KVDB変換時に追加</li><li>既存<code>.kvbd</code>には不足テーブルを自動追加</li><li>Excelエクスポート/再インポートにもカテゴリ細分類を追加</li></ul></section>
+<section class="change-version"><h3>v1.9.0</h3><ul><li>曲の「歌手」「作詞」「作曲」「編曲」「タグ」を編集画面・タグパネルの両方で並べ替え可能に変更</li><li>タイアップの「シリーズ」も編集画面・タグパネルの両方で並べ替え可能に変更</li><li>並べ替え対象の各選択チップへ↑/↓ボタンを追加</li><li>画面上の並び順をそのまま<code>*_sequence</code>の0,1,2...として保存</li><li>先頭項目の↑、末尾項目の↓は無効化して誤操作を防止</li><li>別名義・所属グループ・所属メンバーや逆引き一覧など、DB上のsequenceを表さない複数選択欄には並べ替えボタンを表示しない</li><li>既存DB読込時は従来どおり<code>*_sequence</code>順で表示するため、保存済みの順序を編集画面へ復元</li></ul></section>
+<section class="change-version"><h3>v1.8.4</h3><ul><li>タイアップの一括書き込み画面で「タイアップ名から新規」からシリーズを作る際、元タイアップの「よみ」もシリーズよみへ引き継ぐよう変更</li><li>シリーズ名には従来どおりタイアップ名、シリーズよみには元タイアップの<code>tie_up_ruby</code>を使用</li><li>元タイアップよみは共通ふりがな正規化を通してからシリーズ追加画面へ設定</li><li>元タイアップよみが空欄の場合は、シリーズよみも空欄のままとし、名称からの自動推測で置き換えない</li></ul></section>
+<section class="change-version"><h3>v1.8.3</h3><ul><li>タグパネルを左側/右側へ切り替えられる機能を追加</li><li>タグパネル右上の×ボタン左側へ「≡」配置メニューボタンを追加</li><li>配置メニューから「左側に表示」「右側に表示」を選択可能</li><li>標準配置は従来どおり左側</li><li>右側へ変更した設定は即時保存し、次回起動時も右側配置を復元</li><li>左側へ戻した場合も次回起動時に左側配置を復元</li><li>タグパネル非表示中に左右設定を変更した場合も、次回表示時に指定側へ配置</li><li>左右切替時はタグパネルウィジェット自体を作り直さず、現在の入力/選択状態を維持</li><li>タグパネル保存時のステータス文言を左右どちらでも自然な表記へ変更</li></ul></section>
+<section class="change-version"><h3>v1.8.2</h3><ul><li>Excel再インポート時のふりがなを通常編集と同じ保存方針で自動正規化</li><li>Excel取込では、ひらがなをカタカナへ変換してから差分判定</li><li>全角チルダ「～」および波ダッシュ「〜」を長音記号「ー」へ変換</li><li>正規化後にも残る非カタカナ文字は、通常編集の保存確認後と同じルールで自動除去</li><li>正規化済みふりがなから<code>*_ruby_for_search</code>を再生成して同期</li><li>Excel上の表記が違っても正規化後のDB値が同じ場合はUPDATEしない</li><li>Excel取込結果に「ふりがな自動正規化」の件数を表示</li><li>「～/〜→ー」の変換を共通ふりがな正規化へ追加したため、通常編集・一括追加・既存DB読込時の正規化でも同じ扱いに統一</li></ul></section>
+<section class="change-version"><h3>v1.8.1</h3><ul><li>WindowsでDBをD&amp;Dした瞬間にアプリが終了する問題を修正</li><li>原因となっていたPythonからのWndProc差し替え方式（WM_DROPFILESフック）を完全撤去</li><li>ファイルD&amp;Dを<code>tkinterdnd2</code> / tkdnd経由のTk安全実装へ変更</li><li><code>.kvbd</code> / <code>.ylexa</code>だけをDB未読込時に受け付ける従来仕様を維持</li><li>対応外ファイルのD&amp;Dは通知も出さず無視</li><li>DB読込済み時のD&amp;Dも無視</li><li>空白を含むWindowsパスはTclの<code>splitlist</code>で安全に解析</li><li>D&amp;D機能の初期化に失敗した場合でも通常の［開く］操作は利用可能</li><li>PyInstallerへ<code>tkinterdnd2</code>のtkdndバイナリ/データを同梱するようビルド設定を更新</li><li>ビルド前依存確認へ<code>tkinterdnd2</code>を追加</li></ul></section>
+<section class="change-version"><h3>v1.8.0</h3><ul><li>DB未読込時に<code>.kvbd</code> / <code>.ylexa</code>をメイン画面へドラッグ＆ドロップして開けるよう対応</li><li>対応外ファイルのドラッグ＆ドロップは何も表示せず無視</li><li>不安定だったMp3tag風一覧直接編集モードを廃止し、設定項目とセル内連続編集処理を削除</li><li>一覧のダブルクリックは安定した通常の個別編集画面を開く動作へ統一</li><li>Excel再インポートを差分更新方式へ刷新</li><li>Excel値をふりがな・検索用ふりがな・日付・カテゴリ・無効フラグ・数値型などDB保存形式へ正規化してから比較</li><li>正規化後に既存DBと完全一致するIDはUPDATEを一切発行せず「差分なし」としてスキップ</li><li>変更行だけUPDATEし、新規IDだけINSERTするため大量再インポートを高速化</li><li>UPDATE/INSERTは列構成ごとにexecutemanyでまとめて反映</li><li>カタカナとして解釈できないふりがな、不正日付、不正カテゴリ、不正な無効値、存在しない参照ID、Excel内ID重複などを取り込み前に検出</li><li>エラー行をスキップして正常な差分だけ取り込めるよう対応</li><li>Excel取り込みエラー一覧を追加し、既存IDのエラーは該当レコードの個別編集画面へ移動可能</li><li>Excel取り込み結果に「差分なし（更新せず）」件数を表示</li><li>差分が0件なら一覧タブの再読込も行わず、そのまま終了</li><li>Excelエラー一覧に不正な列名と入力値を表示</li><li><code>.ylexa</code>でKVDB独自テーブルが無い場合もExcel書き出し自体は可能に改善</li><li>Excel表紙の案内を<code>.kvbd</code>と差分再取り込み運用に更新</li></ul></section>
+      </section>
+
+
+      <section class="section license-section">
+        <h2>ライセンス</h2>
+
+        <h3>日本語</h3>
+        <div class="license-note">
+          以下はMIT Licenseの日本語参考訳です。
+          ライセンス条件として正式に適用される内容は、その下の英語原文です。
+        </div>
+        <div class="license">MITライセンス（日本語参考訳）
+
+Copyright (c) 2026 OshinoItsuki
+
+本ソフトウェアおよび関連文書ファイル（以下「本ソフトウェア」）の複製を取得するすべての者に対し、本ソフトウェアを制限なく取り扱うことを無償で許可します。これには、本ソフトウェアの使用、複製、変更、結合、公開、頒布、サブライセンス、および／または販売する権利、ならびに本ソフトウェアの提供を受ける者に同様の行為を許可する権利を含みます。
+
+ただし、上記の著作権表示および本許諾表示を、本ソフトウェアのすべての複製または重要な部分に記載することを条件とします。
+
+本ソフトウェアは「現状のまま」提供され、商品性、特定目的への適合性、および権利非侵害についての保証を含むがこれらに限定されない、明示または黙示を問わず一切の保証を伴いません。著作者または著作権者は、契約、不法行為、その他の理由を問わず、本ソフトウェアまたは本ソフトウェアの使用その他の取り扱いに起因または関連して生じるいかなる請求、損害、その他の責任についても責任を負いません。</div>
+
+        <h3>English</h3>
+        <div class="license">MIT License
+
+Copyright (c) 2026 OshinoItsuki
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the &quot;Software&quot;), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.</div>
       </section>
 
     </main>
