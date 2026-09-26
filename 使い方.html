@@ -343,27 +343,1272 @@ h1{color:#1f4e78;border-bottom:4px solid #5b9bd5;padding-bottom:10px}h2{margin-t
         <p>
           公開版での主な変更履歴です。新しいバージョンから順に記載しています。
         </p>
-        <section class="change-version"><h3>v2.0.14</h3><ul><li>タイアップの一括書き込みでカテゴリ細分類を追加・置換・解除できるよう対応</li><li>大分類が一致するタイアップだけへ安全に反映</li></ul></section>
-<section class="change-version"><h3>v2.0.13</h3><ul><li>一覧のCtrl+CでIDコピーに対応</li><li>設定にタブごとのCtrl+C動作を変更できるショートカットカスタマイズ画面を追加</li></ul></section>
-<section class="change-version"><h3>v2.0.12</h3><ul><li>一覧の右クリックメニューへ［IDをコピー］を追加</li><li>単一IDの項目をクリップボードへコピーし、紐づけExcelへそのまま貼り付け可能</li></ul></section>
-<section class="change-version"><h3>v2.0.11</h3><ul><li>曲の複製画面で、タグも他の関連項目と同じく未チェック・空欄で開始するよう変更</li><li>タグを引き継ぐ場合は個別チェックまたは［全チェック］を使用</li></ul></section>
-<section class="change-version"><h3>v2.0.10</h3><ul><li>公開版ヘルプのライセンス表示をページ最下部へ移動</li><li>ヘルプのライセンスを日本語参考訳 → 英語MIT License原文の順に変更</li><li>日本語ライセンスに「参考訳であり正式条件は英語原文」と明記</li><li>ヘルプへ更新履歴を追加</li><li>公開版README.mdへ更新履歴を追加</li><li>公開版README.mdのバージョン表記をv2.0.10へ更新</li><li>ヘルプ内の曲複製タグ説明を現在仕様（タグも初期継承）へ更新</li></ul></section>
-<section class="change-version"><h3>v2.0.9</h3><ul><li>v2.0.8で追加した個別編集画面の［タグ置換...］を削除</li><li>曲の一括書き込み画面へ［指定タグ置換...］を追加</li><li>置換元タグと置換先タグを1件ずつ指定し、選択中の曲（未選択時は表示中すべて）へ一括適用</li><li>置換元タグが付いていない曲はスキップ</li><li>他のタグは保持し、置換元タグがあった位置へ置換先タグを入れて並び順を維持</li><li>置換先タグが既に付いている場合は重複させず1件に整理</li><li>指定タグ置換も通常の一括書き込みと同じく、いったんプレビューへ反映してから［決定］でDBへ反映</li><li>通常のタグ［追加］［置換］と指定タグ置換を同じ曲へ重ねた場合は、後からプレビューへ指定した操作を優先</li><li>置換先には人物・タイアップ・シリーズ由来の仮タグ候補も利用可能で、DB反映時に通常タグへ変換</li></ul></section>
-<section class="change-version"><h3>v2.0.8</h3><ul><li>曲の追加・編集・複製画面のタグ欄に［タグ置換...］を追加</li><li>現在付いているタグを1件選び、別のタグへ直接置換可能</li><li>置換時は他のタグを残し、元タグがあった並び位置も維持</li><li>置換先タグが既に付いている場合は重複登録せず、置換元タグだけを削除</li><li>曲の複製画面でタグを置換した場合は「複製元と同じ」のチェックを自動でOFF</li><li>通常のタグ追加・削除・並び替え操作は従来どおり利用可能</li></ul></section>
-<section class="change-version"><h3>v2.0.7</h3><ul><li>曲の「複製して作成」でタグにも「複製元と同じ」チェックを追加</li><li>タグの「複製元と同じ」は初期状態でON</li><li>複製画面を開いた時点で、複製元のタグを新しい曲へ引き継ぐ状態に変更</li><li>タグのチェックを外した後は、タグ欄を自由に追加・削除可能</li><li>［全チェック］の対象にもタグを含めるよう変更</li><li>［全解除］ボタンを廃止</li><li>個別チェックを外しただけでは入力済み値を消さない従来仕様は維持</li></ul></section>
-<section class="change-version"><h3>v2.0.6</h3><ul><li>一括書き込みで、空欄のまま［すべて上書き］を選んだ場合に既存値を空欄へ置き換えるよう変更</li><li>複数関連項目では、空欄のまま［置換］を選ぶと既存の紐づけをすべて解除</li><li>対応対象: ふりがな、キーワード、カテゴリー、タイアップ、歌手、作詞、作曲、編曲、タグ、メーカー、シリーズ</li><li>空欄＋上書き／置換を［書き込み］でプレビューへ反映する前に警告を表示</li><li>警告には空欄化する項目名を列挙し、「現在登録されている値を空欄に置き換えます」と明示</li><li>警告をキャンセルした場合はプレビューにも反映せず、DBも変更しない</li><li>プレビューには空欄化予定を「（空欄）」として表示</li><li>既に空欄の対象を空欄へ置換する場合はスキップ件数として扱う</li></ul></section>
-<section class="change-version"><h3>v2.0.5</h3><ul><li>KVDB形式の曲重複判定をYukariStar互換形式と分離</li><li>KVDBでは同じ曲名・同じキーワードでも、歌手・タイアップ・作詞・作曲・編曲・タグなど他の情報が異なれば別曲として保存可能</li><li>KVDBでID以外の曲情報がすべて一致する場合だけ保存を止め、区別用キーワードの入力を要求</li><li>曲本体だけでなく歌手・作詞・作曲・編曲・タグのsequenceも完全一致判定へ含める</li><li>曲名よみ・発売日・タイアップ・区分・無効状態など曲本体の情報も完全一致判定へ含める</li><li>KVDBの通常追加・複製・個別編集・タグパネル編集で新しい判定を使用</li><li><code>.ylexa</code>では従来どおり「同じ名称＋同じキーワード」の重複ルールを維持</li><li>「複製曲のタグからキーワードを自動生成」設定はKVDBでは実行せず、ゆかりスター互換DBでのみ使用</li><li>KVDBで同名曲が存在する場合の画面警告を、新しい重複ルールに合わせて変更</li></ul></section>
-<section class="change-version"><h3>v2.0.4</h3><ul><li>「曲の複製時、キーワードが未変更ならタグ名で区別する」設定の動作を拡張</li><li>複製時に曲キーワードが空欄の場合は、従来どおり現在のタグ名をキーワードへ設定</li><li>曲キーワードが空欄でなくても複製元と完全一致している場合は、元キーワードの後ろへ現在のタグ名を追加</li><li>曲キーワードを複製画面で手動変更済みの場合は、自動変更せず入力値を優先</li><li>既にキーワード内に同じタグ名が含まれている場合は二重追加しない</li><li>複製元との同一判定より前に自動調整するため、タグ由来キーワードで別曲として登録可能</li></ul></section>
-<section class="change-version"><h3>v2.0.3</h3><ul><li>設定に「曲の複製時、キーワードが空欄ならタグ名をキーワードへコピーする」を追加</li><li>新設定の標準値はOFF</li><li>設定ON時、曲の「複製して作成」で曲キーワードが空欄かつタグが1件以上ある場合、現在選択されているタグ名を曲キーワードへ自動コピー</li><li>複製元のタグではなく、複製画面で追加・削除した後の現在のタグを使用</li><li>複数タグは空白区切りで格納</li><li>同名タグはキーワード内で重複させない</li><li>既に曲キーワードが入力されている場合は手入力値を優先</li><li>自動生成したキーワードは複製元との同一判定より前に反映し、DB上でも区別用キーワードとして保存</li></ul></section>
-<section class="change-version"><h3>v2.0.2</h3><ul><li>「複製して作成」画面へ［全チェック］［全解除］ボタンを追加</li><li>［全チェック］で画面内のすべての「複製元と同じ」をONにし、複製元の値を各入力欄へ一括反映</li><li>［全解除］で画面内のすべての「複製元と同じ」をOFF</li><li>通常項目だけでなく、シリーズ・カテゴリ細分類・人物関係など「複製元と同じ」チェックが付く関連項目も一括操作対象</li><li>個別チェックの従来動作はそのまま維持</li></ul></section>
-<section class="change-version"><h3>v2.0.1</h3><ul><li>「カテゴリ細分類」の追加画面で［保存］を押しても登録できない問題を修正</li><li>原因は、上位細分類欄の<code>TokenMultiSelect</code>を通常テキスト欄として読み取ろうとしていたこと</li><li>個別編集画面の参照フィールド取得を個別列名判定から<code>TokenMultiSelect</code>型判定へ統一</li><li>カテゴリ細分類の「上位細分類」は選択された<code>category_detail_id</code>を正しく保存</li><li>「大分類」も既存カテゴリと同じく表示名からカテゴリIDへ変換して保存</li><li>今後単一参照フィールドを追加した場合も同種の保存漏れが起こりにくい構造へ改善</li></ul></section>
-<section class="change-version"><h3>v2.0.0</h3><ul><li>KVDB独自の階層型「カテゴリ細分類」を追加</li><li>既存の<code>tie_up_category_id</code>は大分類としてそのまま維持し、YukariStar互換領域を変更しない</li><li><code>kvdb_category_detail</code>に細分類ID・大分類・上位細分類・名称・表示順・無効を保存</li><li><code>kvdb_category_detail_sequence</code>でタイアップと細分類を複数・順序付きで紐づけ</li><li>細分類IDは<code>[ID接頭文字]_CD_[数字]</code>で採番</li><li>「カテゴリ細分類」タブを追加</li><li>上位細分類を任意指定可能で、3階層以上にも拡張可能</li><li>タイアップのタグパネルと個別編集画面へ「カテゴリ細分類」を追加</li><li>タイアップの大分類に属する細分類だけを候補表示</li><li>大分類と一致しない細分類は保存時エラー</li><li>表示は「001 アニメ &gt; 001 TV」の階層形式</li><li>高度なタブに「カテゴリ細分類関連」を追加</li><li><code>.ylexa</code>では独自テーブルを自動追加せず、KVDB変換時に追加</li><li>既存<code>.kvbd</code>には不足テーブルを自動追加</li><li>Excelエクスポート/再インポートにもカテゴリ細分類を追加</li></ul></section>
-<section class="change-version"><h3>v1.9.0</h3><ul><li>曲の「歌手」「作詞」「作曲」「編曲」「タグ」を編集画面・タグパネルの両方で並べ替え可能に変更</li><li>タイアップの「シリーズ」も編集画面・タグパネルの両方で並べ替え可能に変更</li><li>並べ替え対象の各選択チップへ↑/↓ボタンを追加</li><li>画面上の並び順をそのまま<code>*_sequence</code>の0,1,2...として保存</li><li>先頭項目の↑、末尾項目の↓は無効化して誤操作を防止</li><li>別名義・所属グループ・所属メンバーや逆引き一覧など、DB上のsequenceを表さない複数選択欄には並べ替えボタンを表示しない</li><li>既存DB読込時は従来どおり<code>*_sequence</code>順で表示するため、保存済みの順序を編集画面へ復元</li></ul></section>
-<section class="change-version"><h3>v1.8.4</h3><ul><li>タイアップの一括書き込み画面で「タイアップ名から新規」からシリーズを作る際、元タイアップの「よみ」もシリーズよみへ引き継ぐよう変更</li><li>シリーズ名には従来どおりタイアップ名、シリーズよみには元タイアップの<code>tie_up_ruby</code>を使用</li><li>元タイアップよみは共通ふりがな正規化を通してからシリーズ追加画面へ設定</li><li>元タイアップよみが空欄の場合は、シリーズよみも空欄のままとし、名称からの自動推測で置き換えない</li></ul></section>
-<section class="change-version"><h3>v1.8.3</h3><ul><li>タグパネルを左側/右側へ切り替えられる機能を追加</li><li>タグパネル右上の×ボタン左側へ「≡」配置メニューボタンを追加</li><li>配置メニューから「左側に表示」「右側に表示」を選択可能</li><li>標準配置は従来どおり左側</li><li>右側へ変更した設定は即時保存し、次回起動時も右側配置を復元</li><li>左側へ戻した場合も次回起動時に左側配置を復元</li><li>タグパネル非表示中に左右設定を変更した場合も、次回表示時に指定側へ配置</li><li>左右切替時はタグパネルウィジェット自体を作り直さず、現在の入力/選択状態を維持</li><li>タグパネル保存時のステータス文言を左右どちらでも自然な表記へ変更</li></ul></section>
-<section class="change-version"><h3>v1.8.2</h3><ul><li>Excel再インポート時のふりがなを通常編集と同じ保存方針で自動正規化</li><li>Excel取込では、ひらがなをカタカナへ変換してから差分判定</li><li>全角チルダ「～」および波ダッシュ「〜」を長音記号「ー」へ変換</li><li>正規化後にも残る非カタカナ文字は、通常編集の保存確認後と同じルールで自動除去</li><li>正規化済みふりがなから<code>*_ruby_for_search</code>を再生成して同期</li><li>Excel上の表記が違っても正規化後のDB値が同じ場合はUPDATEしない</li><li>Excel取込結果に「ふりがな自動正規化」の件数を表示</li><li>「～/〜→ー」の変換を共通ふりがな正規化へ追加したため、通常編集・一括追加・既存DB読込時の正規化でも同じ扱いに統一</li></ul></section>
-<section class="change-version"><h3>v1.8.1</h3><ul><li>WindowsでDBをD&amp;Dした瞬間にアプリが終了する問題を修正</li><li>原因となっていたPythonからのWndProc差し替え方式（WM_DROPFILESフック）を完全撤去</li><li>ファイルD&amp;Dを<code>tkinterdnd2</code> / tkdnd経由のTk安全実装へ変更</li><li><code>.kvbd</code> / <code>.ylexa</code>だけをDB未読込時に受け付ける従来仕様を維持</li><li>対応外ファイルのD&amp;Dは通知も出さず無視</li><li>DB読込済み時のD&amp;Dも無視</li><li>空白を含むWindowsパスはTclの<code>splitlist</code>で安全に解析</li><li>D&amp;D機能の初期化に失敗した場合でも通常の［開く］操作は利用可能</li><li>PyInstallerへ<code>tkinterdnd2</code>のtkdndバイナリ/データを同梱するようビルド設定を更新</li><li>ビルド前依存確認へ<code>tkinterdnd2</code>を追加</li></ul></section>
-<section class="change-version"><h3>v1.8.0</h3><ul><li>DB未読込時に<code>.kvbd</code> / <code>.ylexa</code>をメイン画面へドラッグ＆ドロップして開けるよう対応</li><li>対応外ファイルのドラッグ＆ドロップは何も表示せず無視</li><li>不安定だったMp3tag風一覧直接編集モードを廃止し、設定項目とセル内連続編集処理を削除</li><li>一覧のダブルクリックは安定した通常の個別編集画面を開く動作へ統一</li><li>Excel再インポートを差分更新方式へ刷新</li><li>Excel値をふりがな・検索用ふりがな・日付・カテゴリ・無効フラグ・数値型などDB保存形式へ正規化してから比較</li><li>正規化後に既存DBと完全一致するIDはUPDATEを一切発行せず「差分なし」としてスキップ</li><li>変更行だけUPDATEし、新規IDだけINSERTするため大量再インポートを高速化</li><li>UPDATE/INSERTは列構成ごとにexecutemanyでまとめて反映</li><li>カタカナとして解釈できないふりがな、不正日付、不正カテゴリ、不正な無効値、存在しない参照ID、Excel内ID重複などを取り込み前に検出</li><li>エラー行をスキップして正常な差分だけ取り込めるよう対応</li><li>Excel取り込みエラー一覧を追加し、既存IDのエラーは該当レコードの個別編集画面へ移動可能</li><li>Excel取り込み結果に「差分なし（更新せず）」件数を表示</li><li>差分が0件なら一覧タブの再読込も行わず、そのまま終了</li><li>Excelエラー一覧に不正な列名と入力値を表示</li><li><code>.ylexa</code>でKVDB独自テーブルが無い場合もExcel書き出し自体は可能に改善</li><li>Excel表紙の案内を<code>.kvbd</code>と差分再取り込み運用に更新</li></ul></section>
+        <section class="change-version"><h3>v2.0.18</h3><ul>
+<li>公開版作成時に <code>version.py</code> のバージョンを公開用READMEへ自動反映</li>
+<li><code>CHANGELOG.md</code> の更新履歴を公開用READMEと同梱の使い方HTMLへ自動反映</li>
+<li>公開版作成のたびに生成先へ同期するため、今後バージョン更新時に公開用ドキュメントだけ古いまま残る問題を防止</li>
+</ul></section>
+<section class="change-version"><h3>v2.0.17</h3><ul>
+<li>公開版ビルド前に必須ソースファイルの存在を検査し、<code>app/ui/main_window.py</code> などが欠けている場合はPyInstaller実行前に明示エラーで停止</li>
+<li>公開版ビルド前に <code>app.ui.main_window.EditorApp</code> とExcel機能をPythonから実importして、ソース構成の欠落を事前検出</li>
+<li>PyInstallerへ <code>app</code> 配下のサブモジュールを明示収集する保険を追加</li>
+<li>GUI版EXEのビルド後セルフテストを <code>Start-Process -Wait</code> で待機し、実際の終了コードを判定するよう修正</li>
+</ul></section>
+<section class="change-version"><h3>v2.0.16</h3><ul>
+<li>一覧の検索方式に［完全一致］を追加</li>
+</ul></section>
+<section class="change-version"><h3>v2.0.15</h3><ul>
+<li>一覧の検索バーに検索対象の項目選択を追加</li>
+<li>［全項目］では従来どおり全項目を横断検索し、曲名・人物名・タイアップ・歌手など表示中の列を指定した絞り込みにも対応</li>
+<li>検索方式を［部分一致］［前方一致］［後方一致］から選択可能にし、初期状態は従来互換の［全項目］＋［部分一致］</li>
+<li>各編集画面のIDサジェストで、ひらがな入力をカタカナへ正規化してふりがな検索できるよう変更</li>
+<li>曲のタグ欄に表示する人物・タイアップ・シリーズ由来の候補も、ひらがなの読み検索に対応</li>
+</ul></section>
+<section class="change-version"><h3>v2.0.14</h3><ul>
+<li>タイアップの一括書き込みへ「カテゴリ細分類」を追加</li>
+<li>KVDBのカテゴリ細分類テーブルが存在する場合だけ一括編集欄を表示</li>
+<li>カテゴリ細分類は「未設定だけ」「追加」「置換」に対応</li>
+<li>複数の細分類を一度に選択可能で、画面上の選択順をsequence順として保存</li>
+<li>空欄＋「置換」で対象タイアップのカテゴリ細分類をすべて解除可能</li>
+<li>選択中タイアップが同じ大分類の場合は、その大分類に属する細分類を候補表示</li>
+<li>同時に「カテゴリー」も一括変更する場合は、新しく選択した大分類に合わせて細分類候補を絞り込み</li>
+<li>大分類が混在する複数タイアップへ一括適用した場合、細分類の大分類と一致しないタイアップは安全にスキップ</li>
+<li><code>.ylexa</code>などカテゴリ細分類拡張テーブルが無いDBでは従来どおり項目を表示しない</li>
+</ul></section>
+<section class="change-version"><h3>v2.0.13</h3><ul>
+<li>各一覧で1行選択してCtrl+Cを押すと、初期状態ではそのタブのIDをクリップボードへコピー</li>
+<li>曲・人物・タイアップ・シリーズ・タグ・メーカー・カテゴリ細分類・別名・高度な関連タブを含む全一覧タブでCtrl+Cに対応</li>
+<li>複合主キーの高度な関連タブでは、初期設定の［IDをコピー］で先頭主キー（曲ID/タイアップID等）をコピー</li>
+<li>［ツール］→［設定］へ［ショートカットのカスタマイズ...］を追加</li>
+<li>カスタマイズ画面を「タブ / キー / 動作」の表形式で表示</li>
+<li>タブごとにCtrl+Cを［IDをコピー］［名称をコピー］［選択行をTSVでコピー］［なし］から選択可能</li>
+<li>例: 曲タブは曲IDコピー、人物タブは人物名コピーのような個別設定に対応</li>
+<li>［名称をコピー］は曲・人物・タイアップ・シリーズ・タグ・メーカー・カテゴリ細分類・各別名タブに対応</li>
+<li>［すべてIDコピーに戻す］で全タブを初期設定へリセット可能</li>
+<li>既存の右クリック［IDをコピー］もそのまま維持</li>
+</ul></section>
+<section class="change-version"><h3>v2.0.12</h3><ul>
+<li>一覧で1行を選択して右クリックしたときのメニューへ［IDをコピー］を追加</li>
+<li>曲・人物・タイアップ・シリーズ・タグ・メーカー・カテゴリ細分類など、単一IDを持つタブで利用可能</li>
+<li>［IDをコピー］で主キーID文字列だけをWindowsクリップボードへコピー</li>
+<li>紐づけExcelのID入力欄などへ、そのまま貼り付け可能</li>
+<li>コピー成功時は画面下部のステータスへコピーしたIDを表示</li>
+<li>複数主キーで構成される高度な関連テーブルでは、IDの意味が曖昧なため［IDをコピー］を表示しない</li>
+</ul></section>
+<section class="change-version"><h3>v2.0.11</h3><ul>
+<li>曲の「複製して作成」でタグの「複製元と同じ」が初期ONになっていた仕様を変更</li>
+<li>複製画面を開いた直後は、タグも歌手・作詞・作曲・編曲などと同じく未チェック・空欄で開始</li>
+<li>複製元のタグを引き継ぐ場合は、タグの「複製元と同じ」を個別にチェックするか［全チェック］を使用</li>
+<li>［全チェック］では従来どおりタグを含むすべての「複製元と同じ」をONにして値をコピー</li>
+<li>公開版ヘルプの複製説明を現在仕様へ修正</li>
+</ul></section>
+<section class="change-version"><h3>v2.0.10</h3><ul>
+<li>公開版ヘルプのライセンス表示をページ最下部へ移動</li>
+<li>ヘルプのライセンスを日本語参考訳 → 英語MIT License原文の順に変更</li>
+<li>日本語ライセンスに「参考訳であり正式条件は英語原文」と明記</li>
+<li>ヘルプへ更新履歴を追加</li>
+<li>公開版README.mdへ更新履歴を追加</li>
+<li>公開版README.mdのバージョン表記をv2.0.10へ更新</li>
+<li>ヘルプ内の曲複製タグ説明を現在仕様（タグも初期継承）へ更新</li>
+</ul></section>
+<section class="change-version"><h3>v2.0.9</h3><ul>
+<li>v2.0.8で追加した個別編集画面の［タグ置換...］を削除</li>
+<li>曲の一括書き込み画面へ［指定タグ置換...］を追加</li>
+<li>置換元タグと置換先タグを1件ずつ指定し、選択中の曲（未選択時は表示中すべて）へ一括適用</li>
+<li>置換元タグが付いていない曲はスキップ</li>
+<li>他のタグは保持し、置換元タグがあった位置へ置換先タグを入れて並び順を維持</li>
+<li>置換先タグが既に付いている場合は重複させず1件に整理</li>
+<li>指定タグ置換も通常の一括書き込みと同じく、いったんプレビューへ反映してから［決定］でDBへ反映</li>
+<li>通常のタグ［追加］［置換］と指定タグ置換を同じ曲へ重ねた場合は、後からプレビューへ指定した操作を優先</li>
+<li>置換先には人物・タイアップ・シリーズ由来の仮タグ候補も利用可能で、DB反映時に通常タグへ変換</li>
+</ul></section>
+<section class="change-version"><h3>v2.0.8</h3><ul>
+<li>曲の追加・編集・複製画面のタグ欄に［タグ置換...］を追加</li>
+<li>現在付いているタグを1件選び、別のタグへ直接置換可能</li>
+<li>置換時は他のタグを残し、元タグがあった並び位置も維持</li>
+<li>置換先タグが既に付いている場合は重複登録せず、置換元タグだけを削除</li>
+<li>曲の複製画面でタグを置換した場合は「複製元と同じ」のチェックを自動でOFF</li>
+<li>通常のタグ追加・削除・並び替え操作は従来どおり利用可能</li>
+</ul></section>
+<section class="change-version"><h3>v2.0.7</h3><ul>
+<li>曲の「複製して作成」でタグにも「複製元と同じ」チェックを追加</li>
+<li>タグの「複製元と同じ」は初期状態でON</li>
+<li>複製画面を開いた時点で、複製元のタグを新しい曲へ引き継ぐ状態に変更</li>
+<li>タグのチェックを外した後は、タグ欄を自由に追加・削除可能</li>
+<li>［全チェック］の対象にもタグを含めるよう変更</li>
+<li>［全解除］ボタンを廃止</li>
+<li>個別チェックを外しただけでは入力済み値を消さない従来仕様は維持</li>
+</ul></section>
+<section class="change-version"><h3>v2.0.6</h3><ul>
+<li>一括書き込みで、空欄のまま［すべて上書き］を選んだ場合に既存値を空欄へ置き換えるよう変更</li>
+<li>複数関連項目では、空欄のまま［置換］を選ぶと既存の紐づけをすべて解除</li>
+<li>対応対象: ふりがな、キーワード、カテゴリー、タイアップ、歌手、作詞、作曲、編曲、タグ、メーカー、シリーズ</li>
+<li>空欄＋上書き／置換を［書き込み］でプレビューへ反映する前に警告を表示</li>
+<li>警告には空欄化する項目名を列挙し、「現在登録されている値を空欄に置き換えます」と明示</li>
+<li>警告をキャンセルした場合はプレビューにも反映せず、DBも変更しない</li>
+<li>プレビューには空欄化予定を「（空欄）」として表示</li>
+<li>既に空欄の対象を空欄へ置換する場合はスキップ件数として扱う</li>
+</ul></section>
+<section class="change-version"><h3>v2.0.5</h3><ul>
+<li>KVDB形式の曲重複判定をYukariStar互換形式と分離</li>
+<li>KVDBでは同じ曲名・同じキーワードでも、歌手・タイアップ・作詞・作曲・編曲・タグなど他の情報が異なれば別曲として保存可能</li>
+<li>KVDBでID以外の曲情報がすべて一致する場合だけ保存を止め、区別用キーワードの入力を要求</li>
+<li>曲本体だけでなく歌手・作詞・作曲・編曲・タグのsequenceも完全一致判定へ含める</li>
+<li>曲名よみ・発売日・タイアップ・区分・無効状態など曲本体の情報も完全一致判定へ含める</li>
+<li>KVDBの通常追加・複製・個別編集・タグパネル編集で新しい判定を使用</li>
+<li><code>.ylexa</code>では従来どおり「同じ名称＋同じキーワード」の重複ルールを維持</li>
+<li>「複製曲のタグからキーワードを自動生成」設定はKVDBでは実行せず、ゆかりスター互換DBでのみ使用</li>
+<li>KVDBで同名曲が存在する場合の画面警告を、新しい重複ルールに合わせて変更</li>
+</ul></section>
+<section class="change-version"><h3>v2.0.4</h3><ul>
+<li>「曲の複製時、キーワードが未変更ならタグ名で区別する」設定の動作を拡張</li>
+<li>複製時に曲キーワードが空欄の場合は、従来どおり現在のタグ名をキーワードへ設定</li>
+<li>曲キーワードが空欄でなくても複製元と完全一致している場合は、元キーワードの後ろへ現在のタグ名を追加</li>
+<li>曲キーワードを複製画面で手動変更済みの場合は、自動変更せず入力値を優先</li>
+<li>既にキーワード内に同じタグ名が含まれている場合は二重追加しない</li>
+<li>複製元との同一判定より前に自動調整するため、タグ由来キーワードで別曲として登録可能</li>
+</ul></section>
+<section class="change-version"><h3>v2.0.3</h3><ul>
+<li>設定に「曲の複製時、キーワードが空欄ならタグ名をキーワードへコピーする」を追加</li>
+<li>新設定の標準値はOFF</li>
+<li>設定ON時、曲の「複製して作成」で曲キーワードが空欄かつタグが1件以上ある場合、現在選択されているタグ名を曲キーワードへ自動コピー</li>
+<li>複製元のタグではなく、複製画面で追加・削除した後の現在のタグを使用</li>
+<li>複数タグは空白区切りで格納</li>
+<li>同名タグはキーワード内で重複させない</li>
+<li>既に曲キーワードが入力されている場合は手入力値を優先</li>
+<li>自動生成したキーワードは複製元との同一判定より前に反映し、DB上でも区別用キーワードとして保存</li>
+</ul></section>
+<section class="change-version"><h3>v2.0.2</h3><ul>
+<li>「複製して作成」画面へ［全チェック］［全解除］ボタンを追加</li>
+<li>［全チェック］で画面内のすべての「複製元と同じ」をONにし、複製元の値を各入力欄へ一括反映</li>
+<li>［全解除］で画面内のすべての「複製元と同じ」をOFF</li>
+<li>通常項目だけでなく、シリーズ・カテゴリ細分類・人物関係など「複製元と同じ」チェックが付く関連項目も一括操作対象</li>
+<li>個別チェックの従来動作はそのまま維持</li>
+</ul></section>
+<section class="change-version"><h3>v2.0.1</h3><ul>
+<li>「カテゴリ細分類」の追加画面で［保存］を押しても登録できない問題を修正</li>
+<li>原因は、上位細分類欄の<code>TokenMultiSelect</code>を通常テキスト欄として読み取ろうとしていたこと</li>
+<li>個別編集画面の参照フィールド取得を個別列名判定から<code>TokenMultiSelect</code>型判定へ統一</li>
+<li>カテゴリ細分類の「上位細分類」は選択された<code>category_detail_id</code>を正しく保存</li>
+<li>「大分類」も既存カテゴリと同じく表示名からカテゴリIDへ変換して保存</li>
+<li>今後単一参照フィールドを追加した場合も同種の保存漏れが起こりにくい構造へ改善</li>
+</ul></section>
+<section class="change-version"><h3>v2.0.0</h3><ul>
+<li>KVDB独自の階層型「カテゴリ細分類」を追加</li>
+<li>既存の<code>tie_up_category_id</code>は大分類としてそのまま維持し、YukariStar互換領域を変更しない</li>
+<li><code>kvdb_category_detail</code>に細分類ID・大分類・上位細分類・名称・表示順・無効を保存</li>
+<li><code>kvdb_category_detail_sequence</code>でタイアップと細分類を複数・順序付きで紐づけ</li>
+<li>細分類IDは<code>[ID接頭文字]_CD_[数字]</code>で採番</li>
+<li>「カテゴリ細分類」タブを追加</li>
+<li>上位細分類を任意指定可能で、3階層以上にも拡張可能</li>
+<li>タイアップのタグパネルと個別編集画面へ「カテゴリ細分類」を追加</li>
+<li>タイアップの大分類に属する細分類だけを候補表示</li>
+<li>大分類と一致しない細分類は保存時エラー</li>
+<li>表示は「001 アニメ &gt; 001 TV」の階層形式</li>
+<li>高度なタブに「カテゴリ細分類関連」を追加</li>
+<li><code>.ylexa</code>では独自テーブルを自動追加せず、KVDB変換時に追加</li>
+<li>既存<code>.kvbd</code>には不足テーブルを自動追加</li>
+<li>Excelエクスポート/再インポートにもカテゴリ細分類を追加</li>
+</ul></section>
+<section class="change-version"><h3>v1.9.0</h3><ul>
+<li>曲の「歌手」「作詞」「作曲」「編曲」「タグ」を編集画面・タグパネルの両方で並べ替え可能に変更</li>
+<li>タイアップの「シリーズ」も編集画面・タグパネルの両方で並べ替え可能に変更</li>
+<li>並べ替え対象の各選択チップへ↑/↓ボタンを追加</li>
+<li>画面上の並び順をそのまま<code>*_sequence</code>の0,1,2...として保存</li>
+<li>先頭項目の↑、末尾項目の↓は無効化して誤操作を防止</li>
+<li>別名義・所属グループ・所属メンバーや逆引き一覧など、DB上のsequenceを表さない複数選択欄には並べ替えボタンを表示しない</li>
+<li>既存DB読込時は従来どおり<code>*_sequence</code>順で表示するため、保存済みの順序を編集画面へ復元</li>
+</ul></section>
+<section class="change-version"><h3>v1.8.4</h3><ul>
+<li>タイアップの一括書き込み画面で「タイアップ名から新規」からシリーズを作る際、元タイアップの「よみ」もシリーズよみへ引き継ぐよう変更</li>
+<li>シリーズ名には従来どおりタイアップ名、シリーズよみには元タイアップの<code>tie_up_ruby</code>を使用</li>
+<li>元タイアップよみは共通ふりがな正規化を通してからシリーズ追加画面へ設定</li>
+<li>元タイアップよみが空欄の場合は、シリーズよみも空欄のままとし、名称からの自動推測で置き換えない</li>
+</ul></section>
+<section class="change-version"><h3>v1.8.3</h3><ul>
+<li>タグパネルを左側/右側へ切り替えられる機能を追加</li>
+<li>タグパネル右上の&#215;ボタン左側へ「≡」配置メニューボタンを追加</li>
+<li>配置メニューから「左側に表示」「右側に表示」を選択可能</li>
+<li>標準配置は従来どおり左側</li>
+<li>右側へ変更した設定は即時保存し、次回起動時も右側配置を復元</li>
+<li>左側へ戻した場合も次回起動時に左側配置を復元</li>
+<li>タグパネル非表示中に左右設定を変更した場合も、次回表示時に指定側へ配置</li>
+<li>左右切替時はタグパネルウィジェット自体を作り直さず、現在の入力/選択状態を維持</li>
+<li>タグパネル保存時のステータス文言を左右どちらでも自然な表記へ変更</li>
+</ul></section>
+<section class="change-version"><h3>v1.8.2</h3><ul>
+<li>Excel再インポート時のふりがなを通常編集と同じ保存方針で自動正規化</li>
+<li>Excel取込では、ひらがなをカタカナへ変換してから差分判定</li>
+<li>全角チルダ「～」および波ダッシュ「〜」を長音記号「ー」へ変換</li>
+<li>正規化後にも残る非カタカナ文字は、通常編集の保存確認後と同じルールで自動除去</li>
+<li>正規化済みふりがなから<code>*_ruby_for_search</code>を再生成して同期</li>
+<li>Excel上の表記が違っても正規化後のDB値が同じ場合はUPDATEしない</li>
+<li>Excel取込結果に「ふりがな自動正規化」の件数を表示</li>
+<li>「～/〜→ー」の変換を共通ふりがな正規化へ追加したため、通常編集・一括追加・既存DB読込時の正規化でも同じ扱いに統一</li>
+</ul></section>
+<section class="change-version"><h3>v1.8.1</h3><ul>
+<li>WindowsでDBをD&amp;Dした瞬間にアプリが終了する問題を修正</li>
+<li>原因となっていたPythonからのWndProc差し替え方式（WM_DROPFILESフック）を完全撤去</li>
+<li>ファイルD&amp;Dを<code>tkinterdnd2</code> / tkdnd経由のTk安全実装へ変更</li>
+<li><code>.kvbd</code> / <code>.ylexa</code>だけをDB未読込時に受け付ける従来仕様を維持</li>
+<li>対応外ファイルのD&amp;Dは通知も出さず無視</li>
+<li>DB読込済み時のD&amp;Dも無視</li>
+<li>空白を含むWindowsパスはTclの<code>splitlist</code>で安全に解析</li>
+<li>D&amp;D機能の初期化に失敗した場合でも通常の［開く］操作は利用可能</li>
+<li>PyInstallerへ<code>tkinterdnd2</code>のtkdndバイナリ/データを同梱するようビルド設定を更新</li>
+<li>ビルド前依存確認へ<code>tkinterdnd2</code>を追加</li>
+</ul></section>
+<section class="change-version"><h3>v1.8.0</h3><ul>
+<li>DB未読込時に<code>.kvbd</code> / <code>.ylexa</code>をメイン画面へドラッグ＆ドロップして開けるよう対応</li>
+<li>対応外ファイルのドラッグ＆ドロップは何も表示せず無視</li>
+<li>不安定だったMp3tag風一覧直接編集モードを廃止し、設定項目とセル内連続編集処理を削除</li>
+<li>一覧のダブルクリックは安定した通常の個別編集画面を開く動作へ統一</li>
+<li>Excel再インポートを差分更新方式へ刷新</li>
+<li>Excel値をふりがな・検索用ふりがな・日付・カテゴリ・無効フラグ・数値型などDB保存形式へ正規化してから比較</li>
+<li>正規化後に既存DBと完全一致するIDはUPDATEを一切発行せず「差分なし」としてスキップ</li>
+<li>変更行だけUPDATEし、新規IDだけINSERTするため大量再インポートを高速化</li>
+<li>UPDATE/INSERTは列構成ごとにexecutemanyでまとめて反映</li>
+<li>カタカナとして解釈できないふりがな、不正日付、不正カテゴリ、不正な無効値、存在しない参照ID、Excel内ID重複などを取り込み前に検出</li>
+<li>エラー行をスキップして正常な差分だけ取り込めるよう対応</li>
+<li>Excel取り込みエラー一覧を追加し、既存IDのエラーは該当レコードの個別編集画面へ移動可能</li>
+<li>Excel取り込み結果に「差分なし（更新せず）」件数を表示</li>
+<li>差分が0件なら一覧タブの再読込も行わず、そのまま終了</li>
+<li>Excelエラー一覧に不正な列名と入力値を表示</li>
+<li><code>.ylexa</code>でKVDB独自テーブルが無い場合もExcel書き出し自体は可能に改善</li>
+<li>Excel表紙の案内を<code>.kvbd</code>と差分再取り込み運用に更新</li>
+</ul></section>
+<section class="change-version"><h3>v1.7.2</h3><ul>
+<li>Mp3tag風一覧直接編集を軽量化</li>
+<li>1セル保存ごとに行っていた一覧全件のDB再取得・Treeview全再描画を廃止</li>
+<li>保存後は変更したレコード1件だけ取得し、該当行だけ画面更新</li>
+<li>Tab/Shift+Tab/矢印+Tabの連続編集では全件refreshを挟まず次セルへ移動</li>
+<li>連続編集で行選択が移る間はタグパネルの再読込を抑止</li>
+<li>EnterまたはEscで連続編集を終えた時にタグパネルを1回だけ同期</li>
+<li>編集列がソート対象の場合は終了時にDBアクセスなしで一覧の表示順だけ再構築</li>
+<li>検索中、または編集列が空欄絞り込み対象の場合のみ終了時に全件再取得して条件を再評価</li>
+<li>無効フラグ変更時の行色も全件refreshなしで即時反映</li>
+<li>既存の保存検証・ふりがな処理・キーボード操作は維持</li>
+</ul></section>
+<section class="change-version"><h3>v1.7.1</h3><ul>
+<li>人物保存時に別名義・所属関係を毎回DELETE/INSERTしてrelation_idが変わる問題を修正</li>
+<li><code>replace_person_relation_links()</code>を全置換方式から差分更新方式へ変更</li>
+<li>変更のない別名義・所属関係は既存の<code>[接頭文字]_PR_[数字]</code>をそのまま維持</li>
+<li>新しく追加された人物関係にだけ新しいPR_IDを採番</li>
+<li>削除された有効関係だけを削除</li>
+<li>無効化済みの同一関係を再追加した場合は既存IDを維持したまま再有効化</li>
+<li>別名義はA→B / B→Aを同一関係として照合し、既存レコードの向きとIDを維持</li>
+<li>人物関係が完全に同じ状態で人物を保存した場合は<code>kvdb_person_relation</code>へ書き込みを行わない</li>
+<li>日付列を空欄絞り込みした際に<code>UNSET_MJD is not defined</code>となる問題を修正</li>
+</ul></section>
+<section class="change-version"><h3>v1.7.0</h3><ul>
+<li>Mp3tag風の一覧セル直接編集モードを追加</li>
+<li>設定に「一覧のシングルクリック直接編集を有効にする（大量修正向け）」を追加し、標準はOFF</li>
+<li>設定ON時、既に選択済みの行の編集可能セルをシングルクリックするとその場で編集開始</li>
+<li>設定OFF時は従来どおりダブルクリックでセル直接編集可能</li>
+<li>編集開始時、値があるテキストセルは全選択状態にしてすぐ上書き可能</li>
+<li>Enterで現在セルを保存して編集終了</li>
+<li>Tabで現在セルを保存し、1行下の同じ列を続けて編集</li>
+<li>Shift+Tabで1行上の同じ列へ移動</li>
+<li>矢印キーを押しながらTabで、矢印方向の編集可能セルへ保存しながら移動</li>
+<li>←+Tab / →+Tabは同じ行の左/右にある編集可能列へ移動</li>
+<li>↑+Tab / ↓+Tabは同じ列の上/下の行へ移動</li>
+<li>主キーID、表示専用の歌手/作詞/タグ等の集約列、高度な関連タブは直接編集対象外</li>
+<li>無効列は0/1の選択、カテゴリ列は固定カテゴリの選択UIを表示</li>
+<li>ふりがな直接編集も通常保存と同じカタカナ検証・手動学習・出典記録を実行</li>
+<li>直接編集後は一覧・タグパネルを再読込して表示を同期</li>
+</ul></section>
+<section class="change-version"><h3>v1.6.0</h3><ul>
+<li>人物の個別追加/編集画面へ「別名義」「所属グループ」「所属メンバー」の編集欄を追加</li>
+<li>人物関係欄はタグパネルと同じ人物サジェスト・人物新規追加・複数選択UIを使用</li>
+<li>個別編集画面から保存した人物関係も<code>replace_person_relation_links()</code>へ統一し、タグパネルと同じ双方向管理を適用</li>
+<li>人物複製時は人物関係を意図せず丸ごと複製しない従来安全方針を維持</li>
+<li>タグパネルのレコード切替リセット処理を全タブ共通で再整理</li>
+<li><code>TokenMultiSelect</code>のチップだけでなく、サジェスト欄に入力途中の文字・候補・ポップアップ・遅延検索も完全リセット</li>
+<li><code>KeywordTokenInput</code>のEnter未確定文字もレコード切替時に破棄</li>
+<li>曲・人物・タイアップ・シリーズ・タグ・メーカー・別名義・高度な関連タブの全関連欄を共通リセット対象化</li>
+<li>将来追加されたTokenMultiSelectの登録漏れにも備え、タグパネルbody配下を最終走査して残留値を消去</li>
+<li>レコード切替は「全値完全クリア → 選択レコード読込」の順序に統一</li>
+</ul></section>
+<section class="change-version"><h3>v1.5.3</h3><ul>
+<li>縦に長いタグパネルでTab移動した際、フォーカス先が画面外へ消える問題を修正</li>
+<li>フォーカス対象を内包する最寄りのスクロールCanvasを自動検出</li>
+<li>Tab/Shift+Tabで移動した項目が表示範囲外の場合だけ、必要な分だけ自動スクロール</li>
+<li>既に画面内に見えている項目ではスクロール位置を変更しないため、不要なガタつきを抑制</li>
+<li>人物の別名義・所属グループ・所属メンバー・紐づく曲など、下部の関連項目までフォーカス追従</li>
+<li>保存後/保存ボタンから先頭IDへTab移動した際も、タグパネルが先頭へ自動追従</li>
+<li>NativeWinEditと通常のTk/ttk入力部品の両方で同じスクロール追従処理を使用</li>
+<li>FocusIn経由のフォーカス移動でも必要に応じて表示位置を調整</li>
+</ul></section>
+<section class="change-version"><h3>v1.5.2</h3><ul>
+<li>Tab移動が「無効」欄の直前で止まる問題を根本修正</li>
+<li>原因となっていたNativeWinEdit（Win32 EDIT）からTk/ttk Comboboxへのフォーカス移譲を修正</li>
+<li>NativeWinEditからTk側へ移る際、Tkの論理フォーカスだけでなくWindows HWNDの実キーボードフォーカスも明示移動</li>
+<li>Combobox・Radiobutton等では専用bindtagを先頭に追加し、標準クラスのTab処理よりフォームの明示Tab順を優先</li>
+<li>「無効」欄より下にある別名義・所属グループ・所属メンバー・逆引き関連項目まで連続Tab移動可能に改善</li>
+<li>保存ボタンの次は最上段IDへ戻る循環を維持</li>
+<li>新規追加/編集画面とタグパネルの両方で同じフォーカスブリッジを使用</li>
+<li>非WindowsのNativeWinEdit fallbackにも同じTabチェーンを設定し、GUI構造テスト可能に改善</li>
+<li>Ctrl+PageUp / Ctrl+PageDownによるタブ切替は維持</li>
+</ul></section>
+<section class="change-version"><h3>v1.5.1</h3><ul>
+<li>Tab移動を再調整し、読み取り専用IDを含むフォーム上の全項目を対象化</li>
+<li>無効欄、関連項目、人物の別名義・所属グループ・所属メンバー・紐づく曲などもTab順へ含めるよう変更</li>
+<li>各新規追加/編集画面で一番上のIDから一番下の保存まで上→下順に循環</li>
+<li>保存ボタンの次は一番上のIDへ戻る明示的なTabループへ変更</li>
+<li>タグパネルも同じ全項目Tabループへ統一</li>
+<li>NativeWinEditを含む各フォーム部品の前後移動先を明示指定</li>
+<li>Shift+Tabによる逆順移動とCtrl+PageUp/PageDownによるタブ切替は維持</li>
+</ul></section>
+<section class="change-version"><h3>v1.5.0</h3><ul>
+<li>公開用READMEの目立つ位置に初心者向け「DBを1から作る」手順を追加</li>
+<li>初回ID接頭文字設定→DB新規作成→名前/保存場所決定→データ登録の流れを説明</li>
+<li>大量登録では一括追加・Excelテンプレート利用を推奨する説明を追加</li>
+<li>新規追加・編集・複製画面のTab移動を入力用コントロールの上→下順へ統一</li>
+<li>読み取り専用ID、自動生成、人物追加、複製元と同じ、キャンセル等の補助操作を通常のTab移動から除外</li>
+<li>入力欄の最後から保存ボタンへ移動し、保存の次は先頭入力欄へ戻る循環式Tabナビゲーションを追加</li>
+<li>別名義画面では人物→別名義/所属グループ→別名義ラジオ→所属グループラジオ→保存の順で移動</li>
+<li>タグパネルでも全テーブル共通のTab循環を適用</li>
+<li>NativeWinEditでも通常Tkフォームと同じ明示的Tab順を利用可能に改善</li>
+<li>Shift+Tabによる逆方向移動に対応</li>
+<li>Ctrl+PageUp / Ctrl+PageDownでメインタブを前後に切り替えるショートカットを追加</li>
+<li>使い方HTMLへキーボード操作説明を追加</li>
+</ul></section>
+<section class="change-version"><h3>v1.4.1</h3><ul>
+<li>タグパネルのレコード切替時に前の値が残ることがある問題を全タブ共通で修正</li>
+<li>タグパネル更新を「全項目クリア → 現在選択レコードを再読込」の流れへ統一</li>
+<li>PKが同じ再読込時でも必ず表示値をリセットするよう変更</li>
+<li>曲・人物・タイアップ・シリーズ・タグ・メーカー・別名義・高度な関連タブで同じ更新処理を使用</li>
+<li>曲の関連情報、人物の別名義/所属、タイアップのシリーズ、逆引き関連チップも毎回明示クリア</li>
+<li>TreeviewSelect / タブ切替 / 再読込でafter_idleが重複した場合、古いタグパネル更新を破棄</li>
+<li><code>select_pk()</code>経由の選択復元でもタグパネルを明示的に再読込</li>
+<li>タブの再読込操作後もタグパネル更新を必ず実行</li>
+</ul></section>
+<section class="change-version"><h3>v1.4.0</h3><ul>
+<li>別名義の追加画面で人物入力欄どうしをTabキーで移動しやすいフォーカス順へ改善</li>
+<li>人物入力欄横の「人物を追加」ボタンをTab移動対象から除外</li>
+<li>一括追加の登録対象に「別名義」を追加</li>
+<li>別名義一括追加は「人物（メンバー） / 別名義・所属グループ / 種類 / 無効」のTSV/CSV入力に対応</li>
+<li>一括追加時、入力した人物名を人物DBと照合</li>
+<li>登録済み人物は既存IDを使用し、未登録人物は同じトランザクション内で自動新規登録</li>
+<li>未登録人物のふりがなは既存の自動推測を使用し、関連項目一覧から修正可能</li>
+<li>別名義/所属関係の既存重複・入力内重複を検出してスキップ</li>
+<li>別名義は逆向きの既存関係も同一関係として重複判定</li>
+<li>所属グループは人物→グループの方向を維持して登録</li>
+<li>一括処理中に失敗した場合は人物追加・関係追加をまとめてロールバック</li>
+</ul></section>
+<section class="change-version"><h3>v1.3.1</h3><ul>
+<li>別名義の新規登録時に人物と別名義・所属グループが入れ替わって保存される問題を修正</li>
+<li>新規登録画面では左=人物（メンバー）、右=別名義・所属グループの入力方向をそのまま保持</li>
+<li><code>kvdb_person_relation.relation_id</code>を通常ID体系へ変更</li>
+<li>別名義IDを<code>[ID接頭文字]_PR_[数字]</code>形式で自動採番</li>
+<li>別名義IDは新規登録時に自動表示し編集不可</li>
+<li>v1.3.0以前の数値relation_idをKVDB読み込み時にPR形式へ自動移行</li>
+<li>タグパネルから人物関係を追加した場合もPR形式IDを自動採番</li>
+<li>1人物に対する複数別名義・複数所属グループ登録と双方向表示方式を維持</li>
+</ul></section>
+<section class="change-version"><h3>v1.3.0</h3><ul>
+<li>別名義タブの登録UIを他テーブルと同じ操作感へ刷新</li>
+<li>新規登録時の関連IDを自動採番し、ID欄を編集不可に変更</li>
+<li>人物／別名義・所属グループ欄を人物DBのサジェスト選択式へ変更</li>
+<li>関連人物が未登録の場合に「人物を追加」から新規人物登録可能</li>
+<li>種類を「別名義」「所属グループ（メンバー）」の必須ラジオボタン2択へ変更</li>
+<li><code>kvdb_person_relation</code>へ<code>relation_invalid</code>を追加し、有効／無効切替に対応</li>
+<li>旧KVDBの人物関係テーブルには読み込み時に<code>relation_invalid</code>列を自動追加</li>
+<li>所属関係をDB上はメンバー→グループの1件だけ保持し、逆方向の所属メンバーを自動導出</li>
+<li>人物タグパネルに「別名義」「所属グループ」「所属メンバー」を追加し双方向編集に対応</li>
+<li>別名義関係は向きに依存しない対称関係として扱い、逆方向も自動反映</li>
+<li>別名義タブのタグパネルが表示不能になる不具合を修正し、タグパネルから直接編集可能に変更</li>
+<li>Release用ZIPへの使い方HTML同梱を維持</li>
+</ul></section>
+<section class="change-version"><h3>v1.2.1</h3><ul>
+<li>既存<code>.kvbd</code>に<code>kvdb_person_relation</code>が無い場合、読み込み時に自動追加するよう修正</li>
+<li>自動追加時に「別名義テーブルが存在していなかったため追加しました」と通知</li>
+<li><code>.ylexa</code>読み込み時はKVDB独自テーブルを自動追加しないよう変更</li>
+<li><code>.ylexa</code>で別名義テーブルが無い場合、「別名義」タブを編集不可にして中央にKVDB変換ボタンを表示</li>
+<li>「kvdb形式に変更してテーブルを追加する」ボタンから同名<code>.kvbd</code>へ変換可能</li>
+<li><code>.ylexa</code>から<code>.kvbd</code>へ保存/変換する際、KVDB用不足テーブル追加の確認ダイアログを表示</li>
+<li>標準必須テーブル不足時のSQLite生エラーを日本語のDB確認エラーへ変更</li>
+<li><code>.ylexa</code>のまま保存する場合は独自テーブルを追加しない</li>
+</ul></section>
+<section class="change-version"><h3>v1.2.0</h3><ul>
+<li>データ複製を専用画面化</li>
+<li>ID以外の各項目に「複製元と同じ」チェックを追加</li>
+<li>チェックした項目だけ複製元の値を反映</li>
+<li>曲の歌手・作詞・作曲・編曲も個別に複製可能</li>
+<li>曲のタグは意図的に「複製元と同じ」チェックを設けず、新規側で選択</li>
+<li>タイアップのシリーズ関連も複製対象として選択可能</li>
+<li>複製保存時、ID以外の項目と関連情報・タグが複製元と完全一致する場合は保存を拒否</li>
+<li>タイトル、タグ、その他いずれか1項目でも異なる場合は複製保存を許可</li>
+<li>通常の新規追加における「同じ名称＋キーワード」重複防止は従来どおり維持</li>
+<li>複製専用保存だけ、完全一致チェックを通過した場合に同じ名称＋キーワードを許可</li>
+</ul></section>
+<section class="change-version"><h3>v1.1.0</h3><ul>
+<li>KVBD独自拡張テーブル<code>kvdb_person_relation</code>を正式採用</li>
+<li>既存DBを開いた際、独自人物関係テーブルが無ければ作業DBへ自動追加</li>
+<li>新規KVBDには人物関係テーブルを最初から作成</li>
+<li>メイン画面に「別名義」タブを追加</li>
+<li>人物を検索して「別名義」「グループ所属」の2種類の関係を登録可能</li>
+<li>同一人物同士の関連付け、同一関係の重複、別名義関係の逆向き重複を防止</li>
+<li>一覧では人物IDではなく人物名と関係種別を表示</li>
+<li>独自人物関係の参照整合性チェックを保存時検証へ追加</li>
+<li><code>.ylexa</code>保存時は従来どおり独自テーブル消失警告を表示し、ファイル自体にはテーブルを保持</li>
+<li>Release用ZIPへの<code>使い方.html</code>同梱を維持</li>
+</ul></section>
+<section class="change-version"><h3>v1.0.1</h3><ul>
+<li>GitHub Releases用ZIPへ<code>使い方.html</code>を同梱するよう変更</li>
+<li>Release ZIPの内容を<code>楽曲情報DBエディタ.exe</code>＋<code>使い方.html</code>に変更</li>
+<li>公開リポジトリ側の<code>使い方.html</code>出力は従来どおり維持</li>
+<li><code>公開版を作成.bat</code>一発でRepo用ファイルとRelease用ZIPの両方を生成</li>
+</ul></section>
+<section class="change-version"><h3>v1.0.0</h3><ul>
+<li>初回正式公開版</li>
+<li>アプリバージョンを<code>1.0.0</code>へ更新</li>
+<li>更新確認を公開用GitHubリポジトリのLatest Release参照方式に統一</li>
+<li>更新判定はGitHub Releasesの最新タグと現在バージョンを比較</li>
+<li>更新ページは<code>OshinoItsuki/KaraokeSong_DB_Editor</code>のReleasesページを使用</li>
+<li>起動時の自動更新確認ON/OFF設定を維持</li>
+<li>公開リポジトリ本体とGitHub Release Assetを分離した配布方式を採用</li>
+<li><code>公開版を作成.bat</code>実行時に<code>楽曲情報DBエディタ_v1.0.0.zip</code>をRelease用として生成</li>
+</ul></section>
+<section class="change-version"><h3>v0.21.0</h3><ul>
+<li>公開リポジトリ本体とGitHub Releases用配布物を分離</li>
+<li><code>dist/public_repo</code> はREADME / LICENSE / 使い方.htmlのみ出力</li>
+<li>EXEを公開リポジトリへ直接置かない構成へ変更</li>
+<li><code>dist/release</code> にバージョン付きRelease ZIPを自動生成</li>
+<li>Release ZIPには <code>楽曲情報DBエディタ.exe</code> のみ収録</li>
+<li>ZIP名のバージョンは <code>version.py</code> の <code>__version__</code> から自動取得</li>
+<li>公開版作成BAT一発でビルド・自己テスト・Repo用ファイル・Release ZIPまで生成</li>
+<li>公開READMEのダウンロード案内をGitHub Releases方式へ更新</li>
+<li>Pythonソースやビルド用ファイルを公開リポジトリへ含めない運用を明文化</li>
+</ul></section>
+<section class="change-version"><h3>v0.20.9</h3><ul>
+<li>PyInstaller specで<code>icon_path</code>が<code>project_root</code>定義前に評価される問題を修正</li>
+<li><code>project_root</code>→<code>icon_path</code>の定義順を固定</li>
+<li>EXEの<code>icon=</code>指定を<code>assets/app.ico</code>へ一本化した状態を維持</li>
+<li>spec内のパス定義順と<code>icon=</code>重複を静的検証</li>
+<li>v0.20.8までの公開版生成・ウインドウアイコン・ビルド修正を維持</li>
+</ul></section>
+<section class="change-version"><h3>v0.20.8</h3><ul>
+<li>PyInstaller spec内で<code>icon=</code>が重複しビルドがSyntaxErrorになる問題を修正</li>
+<li>旧<code>app/resources/icon.ico</code>参照を削除</li>
+<li>EXEアイコン指定を<code>assets/app.ico</code>へ一本化</li>
+<li>PyInstallerの<code>EXE(...)</code>内に<code>icon=icon_path</code>が1個だけ存在することを静的検証</li>
+<li>v0.20.7のウインドウアイコン設定と公開版生成フローを維持</li>
+</ul></section>
+<section class="change-version"><h3>v0.20.7</h3><ul>
+<li>アプリケーション用アイコンを追加</li>
+<li><code>assets/app.ico</code> にマルチサイズICOを同梱</li>
+<li>PyInstaller生成EXEへアイコンを設定</li>
+<li>メインウインドウと主要サブウインドウへ同じアイコンを設定</li>
+<li>PyInstaller one-file実行時でもウインドウアイコンを参照できるようICOをバンドル</li>
+<li>公開版生成フローでもアイコン付きEXEがそのまま出力される構成</li>
+</ul></section>
+<section class="change-version"><h3>v0.20.6</h3><ul>
+<li><code>help.html</code> の「独自拡張テーブルとゆかりスター互換出力」が本文枠外へ表示されるレイアウト崩れを修正</li>
+<li>同項目を既存ヘルプ本文コンテナ内へ移動</li>
+<li><code>.ylexa</code> 再エクスポート時の独自テーブル消失注意を警告枠として整理</li>
+<li>v0.20.5の公開用ファイル自動生成機能を維持</li>
+</ul></section>
+<section class="change-version"><h3>v0.20.5</h3><ul>
+<li>公開用リポジトリ向けの配布ファイル自動生成機能を追加</li>
+<li><code>公開版を作成.bat</code> を追加</li>
+<li>BAT実行時にEXEビルド・Excel自己テスト・公開フォルダ生成まで一括実行</li>
+<li>公開用出力先を <code>dist/public_repo</code> に統一</li>
+<li>公開フォルダへ <code>楽曲情報DBエディタ.exe</code> / <code>使い方.html</code> / <code>README.md</code> / <code>LICENSE</code> のみを出力</li>
+<li>開発用READMEとは別に公開リポジトリ専用 <code>public/README.md</code> を追加</li>
+<li>公開ファイル構成の変更は <code>scripts/make_public_repo.ps1</code> だけで管理可能</li>
+<li>公開用リポジトリにソースコードを誤って含めにくい運用へ変更</li>
+</ul></section>
+<section class="change-version"><h3>v0.20.4</h3><ul>
+<li>公開用リポジトリ <code>OshinoItsuki/KaraokeSong_DB_Editor</code> のGitHub Releasesを使った更新確認を追加</li>
+<li>起動時にバックグラウンドで最新正式版を確認し、新版がある場合のみ通知</li>
+<li>設定画面に「起動時に更新版を確認する」ON/OFFを追加（初期値ON）</li>
+<li>［ヘルプ］→［更新を確認...］から手動確認可能</li>
+<li>新版通知からGitHub Releasesのダウンロードページを直接開けるよう対応</li>
+<li>手動確認では最新版・通信失敗・Release未公開を明示</li>
+<li>自動確認時の通信失敗は起動を邪魔しないよう通知を出さず無視</li>
+<li>「このツールについて」のGitHubリンクを公開用リポジトリへ変更</li>
+<li>v0.20.3までのKVBD/YLEXA互換処理・ID接頭文字・Windowsビルド対策を維持</li>
+</ul></section>
+<section class="change-version"><h3>v0.20.3</h3><ul>
+<li><code>.kvbd</code>を独自拡張テーブルを保持する標準形式として明確化</li>
+<li>ゆかりスター標準外の追加テーブルをDBへ追加しても保存を拒否しないようスキーマ保護処理を変更</li>
+<li>元から存在するテーブルの消失や列構成変更は従来どおり保存を拒否</li>
+<li>現在のDBからゆかりスター標準外テーブルを自動検出する機能を追加</li>
+<li>追加テーブルが存在する状態で<code>.ylexa</code>保存を選ぶと互換性警告を表示</li>
+<li><code>.ylexa</code>保存時も独自追加テーブルは削除せず、そのままSQLite/アーカイブへ保持</li>
+<li>警告では、ゆかりスターで読み込み後に再エクスポートすると独自テーブルが失われることを明示</li>
+<li><code>.kvbd</code>保存時は独自追加テーブルについて警告せず通常保存</li>
+<li>v0.20.2のWindowsビルド修正、v0.20.1のID接頭文字分岐を維持</li>
+</ul></section>
+<section class="change-version"><h3>v0.20.2</h3><ul>
+<li>Windowsローカルビルドで <code>build_exe.bat</code> が断片的に解釈される問題を修正</li>
+<li><code>build_exe.bat</code> をASCII文字のみ・Windows標準CRLF改行で再作成</li>
+<li>バッチファイルから日本語EXE名の直接参照を廃止</li>
+<li><code>goto</code> / ラベル方式をやめ、単純な <code>if errorlevel</code> ブロックへ変更</li>
+<li>日本語EXE名を扱う処理を <code>scripts/build.ps1</code> へ集約</li>
+<li><code>scripts/build.ps1</code> をUTF-8 BOM付き・CRLFで保存し、Windows PowerShell 5.1互換性を強化</li>
+<li>PowerShell側でスクリプト自身の場所からプロジェクトルートを解決し、カレントディレクトリ依存を解消</li>
+<li>spec/help/EXE/packageパスを絶対パス化し、日本語・<code>#</code>を含む親フォルダでも安全に処理</li>
+<li>GitHub ActionsではPowerShellの二重起動をやめ、<code>pwsh</code>からbuild.ps1を直接実行</li>
+<li>v0.20.1のDBごとのID接頭文字判定を維持</li>
+<li>開発版Artifact保存期間7日を維持</li>
+</ul></section>
+<section class="change-version"><h3>v0.20.1</h3><ul>
+<li>読み込んだDB内の既存IDから、実際に使用されているID接頭文字を自動推定</li>
+<li>DB側接頭文字とツール設定の接頭文字が異なる場合の処理を追加</li>
+<li>初期動作は「毎回質問する」</li>
+<li>質問では「DB側に合わせる」「ツール設定を使用」を選択可能</li>
+<li>「毎回質問する」でも、一度選択したDBファイルは選択結果を設定へ記憶して次回から確認を省略</li>
+<li>設定画面へ「毎回質問する / DB側に合わせる / 常にツール設定値を使用」の3択を追加</li>
+<li>DB側を選んだ接頭文字はそのDBを開いている間だけ使用し、ツール全体の接頭文字設定は変更しない</li>
+<li>別DBを開く場合はそのDBについて改めて判定</li>
+<li>新規DB作成時は必ずツール側の設定接頭文字を使用</li>
+<li>既存IDは一切書き換えず、新規採番にのみ選択した接頭文字を適用</li>
+<li>v0.20.0のKVBD標準形式・YLEXA互換出力を維持</li>
+</ul></section>
+<section class="change-version"><h3>v0.20.0</h3><ul>
+<li>ツール名を「楽曲情報DBエディタ」へ変更</li>
+<li>説明文を「楽曲情報データベースを編集するためのツールです」へ変更</li>
+<li>標準DB形式を Karaoke Video DataBase (<code>.kvbd</code>) に変更</li>
+<li>DB内部構造は従来互換のまま、ファイル拡張子だけ<code>.kvbd</code>を標準化</li>
+<li><code>.kvbd</code>とゆかりスター互換<code>.ylexa</code>の両方を読み込み可能</li>
+<li><code>.ylexa</code>を開いて通常保存した場合、元<code>.ylexa</code>を残して同名<code>.kvbd</code>へ変換保存</li>
+<li>「名前を付けて保存」で<code>.kvbd</code> / <code>.ylexa</code>を選択可能</li>
+<li>DB新規作成は<code>.kvbd</code>を標準形式として作成</li>
+<li>Excel出力ファイル名など、旧ゆかりスター専用表記を楽曲情報DB向けへ変更</li>
+<li>ID接頭文字を固定<code>Oshino-Itsuki</code>からユーザー設定方式へ変更</li>
+<li>初回起動時にID接頭文字の必須設定ウインドウを表示し、PC内設定へ保存</li>
+<li>ID接頭文字の説明を「IDを区別できるようにするためのもの」として公開向けに整理</li>
+<li>2回目以降は初回設定画面を表示せず、保存済み接頭文字を自動使用</li>
+<li>［ツール］→［設定］からID接頭文字をいつでも変更可能</li>
+<li>接頭文字変更は新規採番だけへ反映し、既存DB内のIDは変更しない</li>
+<li>曲/人物/タイアップ/シリーズ/タグ/メーカー/別名系の自動採番すべてに設定接頭文字を適用</li>
+<li>PyInstaller生成EXE名も「楽曲情報DBエディタ.exe」へ変更</li>
+<li><code>.gitignore</code>でspec全体を除外しつつ<code>YukariSong_DB_Editor.spec</code>だけGit管理対象へ戻し、GitHub Actionsのspec欠落を修正</li>
+<li>開発版Artifact保存期間7日を維持</li>
+</ul></section>
+<section class="change-version"><h3>v0.19.7</h3><ul>
+<li>v0.19.6の「人物・タイアップ・シリーズからタグ候補を流用」機能を曲の一括書き込みにも適用</li>
+<li>曲の一括書き込み画面のタグ欄で、既存タグ＋人物＋タイアップ＋シリーズを横断サジェスト</li>
+<li>タグ未登録の人物/タイアップ/シリーズ候補も一括書き込みのプレビューへ設定可能</li>
+<li>［決定］時に仮タグ候補を実タグへ自動変換し、必要なタグだけ新規登録</li>
+<li>同じ仮タグを複数曲へ一括設定しても同名タグは1件だけ作成</li>
+<li>既存同名タグがある場合は新規作成せず既存タグIDを再利用</li>
+<li>一括書き込み完了画面に自動作成したタグ件数と名称を表示</li>
+<li>v0.19.6のタグパネル・曲詳細編集での自動タグ作成も維持</li>
+<li>v0.19.5以降のEXE Excel自己テスト・Artifact 7日保存を維持</li>
+</ul></section>
+<section class="change-version"><h3>v0.19.6</h3><ul>
+<li>曲のタグ入力欄を人物・タイアップ・シリーズまで横断検索するサジェストへ拡張</li>
+<li>既存タグを最優先で候補表示</li>
+<li>同名タグが未登録の場合のみ、人物・タイアップ・シリーズの名称を「新規タグ候補」として表示</li>
+<li>新規タグ候補は元データの名称とふりがなをそのまま流用</li>
+<li>人物/タイアップ/シリーズ間で同名候補がある場合は重複表示しない</li>
+<li>曲保存時、新規タグ候補を選択していればt_tagへ自動登録して実タグIDへ置換してから曲へ紐づけ</li>
+<li>保存直前に同名タグが既に存在していた場合は新規作成せず既存タグを再利用</li>
+<li>タグパネルと曲の詳細編集画面の両方へ適用</li>
+<li>仮タグ候補は保存前にはタグ詳細編集を開かない安全仕様</li>
+<li>v0.19.5のEXE Excel自己テスト・Artifact 7日保存を維持</li>
+</ul></section>
+<section class="change-version"><h3>v0.19.5</h3><ul>
+<li>EXE版で <code>openpyxl</code> が同梱されずExcelテンプレート出力できない問題へビルド方式から再対策</li>
+<li>PyInstallerコマンド直指定をやめ、<code>YukariSong_DB_Editor.spec</code> を追加してExcel依存関係を明示収集</li>
+<li><code>collect_all()</code> で <code>openpyxl</code> / <code>et_xmlfile</code> / <code>pykakasi</code> のデータ・バイナリ・hidden importを収集</li>
+<li><code>openpyxl</code> の主要サブモジュールをhidden importとして追加指定</li>
+<li>EXEへ <code>--self-test-excel</code> を追加し、openpyxl読込・Workbook生成・xlsx保存まで実際に検証</li>
+<li><code>scripts/build.ps1</code> はビルド直後に完成したEXE自身のExcel自己テストを実行</li>
+<li>Excel自己テストに失敗した場合はビルドを失敗扱いにし、壊れたArtifactを生成しない</li>
+<li>GitHub ActionsでもArtifactアップロード前に完成EXEのExcel自己テストを再実行</li>
+<li>開発版Artifactの保存期間7日は維持</li>
+</ul></section>
+<section class="change-version"><h3>v0.19.4</h3><ul>
+<li>EXE版で入力用Excelテンプレート出力時に <code>openpyxl</code> 読み込みエラーになるケースへの対策</li>
+<li><code>et-xmlfile</code> を実行時依存へ明示追加</li>
+<li>PyInstallerで <code>openpyxl</code> と <code>et_xmlfile</code> を明示的に全収集</li>
+<li>EXEビルド前に <code>openpyxl</code> / <code>et_xmlfile</code> のimportチェックを追加</li>
+<li>GitHub ActionsにもExcel依存関係の事前importチェックを追加</li>
+<li>Excel機能の読み込み失敗時、単に「openpyxlが必要」と表示せず実際のImportError内容を表示</li>
+<li>GitHub Actionsの開発版Artifact保存期間を7日に変更</li>
+<li>Release用ZIPの保存方式は従来どおりGitHub Releaseを使用</li>
+<li>v0.19.3の常設件数表示を維持</li>
+</ul></section>
+<section class="change-version"><h3>v0.19.3</h3><ul>
+<li>画面下部の件数表示を保存・エラー等のステータスメッセージから完全分離</li>
+<li>下部左側を「保存しました」「編集しました」などの操作メッセージ専用領域に変更</li>
+<li>下部右側へ <code>曲: 37 / 1,248 件</code> のような件数専用領域を常設</li>
+<li>保存操作で左側メッセージが更新されても、右側の表示件数は消えない仕様へ変更</li>
+<li>検索・空欄絞り込み・エラー絞り込み・タブ切替時に件数専用領域だけを更新</li>
+<li>並び替えや各種操作メッセージと件数表示が互いに上書きしない構造へ整理</li>
+<li>v0.19.2までの検索・絞り込み件数計算を維持</li>
+</ul></section>
+<section class="change-version"><h3>v0.19.2</h3><ul>
+<li>画面下部のステータスバーへ、現在表示中の件数とDB全件数を常時表示</li>
+<li>通常表示は <code>曲: 表示 1,248件 / 全 1,248件</code></li>
+<li>検索・空欄絞り込み後は <code>曲: 表示 37件 / 全 1,248件</code> のように結果件数を表示</li>
+<li>検索中は検索語、空欄絞込中は対象列名もステータスへ併記</li>
+<li>「エラーのみ」絞り込みでも表示件数を正しく更新</li>
+<li>並び替えを行っても件数表示を消さず、並び順情報を後ろへ併記</li>
+<li>件数表示処理を <code>_update_result_status()</code> に一本化し、各操作で表示内容が食い違わないよう整理</li>
+<li>v0.19.1のひらがなふりがな自動カタカナ化を維持</li>
+</ul></section>
+<section class="change-version"><h3>v0.19.1</h3><ul>
+<li>レコード保存時、ふりがながひらがなの場合は警告なしでカタカナへ自動変換</li>
+<li><code>ぶらっどしー → ブラッドシー</code> のように、変換後がカタカナのみならそのまま保存</li>
+<li>ひらがな→カタカナ変換後も英数字・漢字・記号など非カタカナが残る場合だけ確認ダイアログを表示</li>
+<li>確認ダイアログにはカタカナ化後の値と、最終的に保存される値を表示</li>
+<li>タグパネル・詳細編集・追加画面の共通保存処理へ適用</li>
+<li>v0.19.0の「ふりがなチェックを各データ保存時に実行」仕様を維持</li>
+</ul></section>
+<section class="change-version"><h3>v0.19.0</h3><ul>
+<li>ふりがなのカタカナ制約チェックをDB全体保存時から各レコード保存時へ移動</li>
+<li>曲・人物・タイアップ・シリーズ・タグ・メーカー等の「保存」を押した時点で対象レコードだけ確認</li>
+<li>カタカナ以外を含む場合、その場で <code>元の値 → 修正後の値</code> を表示して確認</li>
+<li>「はい」でカタカナ以外を削除して対象レコードを保存</li>
+<li>「いいえ」でそのレコードの保存自体を中止</li>
+<li>タグパネルからの保存にも同じチェックを適用</li>
+<li>詳細編集/追加画面からの保存にも同じチェックを適用</li>
+<li>修正後のふりがなを保存前に入力欄へ即反映</li>
+<li>DB全体の上書き保存/名前を付けて保存では、ふりがなをまとめて通知・修正しない</li>
+<li>v0.18.9のタグパネル行切替時の空欄リセットを維持</li>
+</ul></section>
+<section class="change-version"><h3>v0.18.9</h3><ul>
+<li>タグパネルで未保存の入力値を残したまま別行を選択すると、次行の同項目が空欄でも入力値が残る問題を修正</li>
+<li>別レコードへ切り替える際、タグパネル全項目を一度明示的に空欄へ戻してから選択行の値を再設定する2段階更新へ変更</li>
+<li>通常入力欄・キーワード・単一紐づけ・曲関連・シリーズ・逆関連の選択状態を行切替時にリセット</li>
+<li>ふりがな出典表示も前レコードから持ち越さないようリセット</li>
+<li>NativeWinEditでは空欄値でも必ず <code>delete</code> / <code>WM_SETTEXT(&quot;&quot;)</code> を実行し、前の未保存文字列を確実に削除</li>
+<li>v0.18.8の「紐づけサジェストから登録済み項目を除外」を維持</li>
+</ul></section>
+<section class="change-version"><h3>v0.18.8</h3><ul>
+<li>紐づけ項目のサジェストから既に登録済み・選択済みの項目を除外</li>
+<li>シリーズ→タイアップ、人物→曲、タグ→曲など複数紐づけ欄で登録済み候補が再表示されないよう改善</li>
+<li>曲の歌手・作詞・作曲・編曲・タグなど、TokenMultiSelectを使う全関連入力欄へ共通適用</li>
+<li>単一選択のタイアップ・メーカー等でも、現在選択中の項目自身は候補から除外</li>
+<li>選択済み項目が検索LIMITを消費して候補数が減らないよう、内部では選択数分を上乗せして検索してから未選択候補を返す</li>
+<li>v0.18.7のウインドウ状態保存・最近使ったDB履歴を維持</li>
+</ul></section>
+<section class="change-version"><h3>v0.18.7</h3><ul>
+<li>Windows設定ファイル保存先を <code>%LOCALAPPDATA%\YukariSong_DB_Editor\settings.json</code> へ変更</li>
+<li>v0.18.6以前の <code>%APPDATA%</code> 設定を初回起動時に自動引き継ぎ</li>
+<li>メインウインドウの通常位置・サイズと最大化状態を分離して保存</li>
+<li>最大化状態で終了した場合、次回は巨大な通常ウインドウではなく正しく最大化して起動</li>
+<li>通常ウインドウ時の最後の位置・サイズを保持し、最大化中のgeometryで上書きしない</li>
+<li>ヘルプ「このツールについて」を毎回メインウインドウ中央へ表示</li>
+<li>ファイルメニューに「最近開いたDBを開く」を追加</li>
+<li>最近使用した <code>.ylexa</code> を最大5件保存してワンクリックで再オープン可能</li>
+<li>存在しない履歴ファイルは確認後に履歴から削除可能</li>
+<li>最近使用したDB履歴を手動消去するメニューを追加</li>
+<li>DB新規作成・通常オープン・最近使ったDB・名前を付けて保存の成功時に履歴を更新</li>
+<li>v0.18.6のGitHub Actions一本化・ビルド構成整理を維持</li>
+</ul></section>
+<section class="change-version"><h3>v0.18.6</h3><ul>
+<li>ユーザー提供の現行プロジェクト一式を基準にファイル構成を整理</li>
+<li>GitHub Actionsの重複Workflowを解消し、既存の <code>.github/workflows/build.yml</code> 1本へ統一</li>
+<li>後から追加された <code>build-windows-exe.yml</code> を削除し、Push時に二重ビルドされる問題を解消</li>
+<li><code>requirements.txt</code> を実行時依存（openpyxl / pykakasi）のみに整理</li>
+<li>PyInstallerは <code>requirements-dev.txt</code> のみに配置し、ビルド依存を分離</li>
+<li><code>build_exe.bat</code> を既存の <code>scripts/build.ps1</code> を呼び出す方式へ統一</li>
+<li><code>build_exe.bat</code> とGitHub Actionsが同じ <code>requirements-dev.txt</code> / <code>build.ps1</code> を使う構成へ統一</li>
+<li>配布ソースから <code>.git</code>、<code>__pycache__</code>、<code>.pyc</code> などの開発・生成物を除外</li>
+<li>重複していたEXEビルド説明ファイルを整理</li>
+<li>v0.18.5までの機能修正をすべて維持</li>
+</ul></section>
+<section class="change-version"><h3>v0.18.5</h3><ul>
+<li>保存時・終了時の「不完全な自動ふりがなの自動空欄化」を撤廃</li>
+<li>手動ふりがなと旧自動生成のカナ断片が偶然一致しても、自動で空欄化しない安全仕様へ変更</li>
+<li>ツールメニューに「不完全な自動ふりがなを空欄化...」を追加</li>
+<li>空欄化候補を一覧表示し、選択した行だけを明示確認後に空欄化</li>
+<li>自動履歴が残っている候補だけ初期選択し、推定候補は未選択で表示</li>
+<li>推定候補には「推定（要確認）」を表示して手動確認を要求</li>
+<li>ふりがな修復で「選択行を適用」後に一覧全体を再読込しないよう変更</li>
+<li>修復画面を閉じるまで他行の取得済み候補を保持</li>
+<li>適用した行は現在値だけ更新し、候補を保持したまま「適用済」と表示</li>
+<li>通常の保存時カタカナ制約確認は従来どおり維持</li>
+</ul></section>
+<section class="change-version"><h3>v0.18.4</h3><ul>
+<li>自動生成ふりがなにカタカナ以外が混在する場合、部分削除ではなく値全体を空欄化するよう変更</li>
+<li><code>アアア漢漢漢 → アアア</code> のような意味のないカナ断片を残さない仕様へ変更</li>
+<li>旧保存処理で既にカナ断片だけ残った可能性が高いデータを保存時に検出して空欄化</li>
+<li>provenanceが <code>save_cleaned</code> の既存値を次回保存時の整理対象に追加</li>
+<li>provenanceが無い既存DBでも、名称の旧自動生成値からカタカナだけ抜いた結果と現在値が完全一致する場合は残骸候補として検出</li>
+<li>完成済みの純カタカナ手入力は変更しない</li>
+<li>手入力由来の非カタカナ混在値は従来どおり保存確認後に非カタカナ部分だけ削除</li>
+<li>保存確認ダイアログに空欄化件数を表示</li>
+<li>空欄化した値の出典を「自動: 不完全読みを空欄化」として記録</li>
+</ul></section>
+<section class="change-version"><h3>v0.18.3</h3><ul>
+<li>ふりがな修復の「選択行を適用」で候補が反映されず消える問題を修正</li>
+<li>選択行を明示的に適用する場合は、手動扱いの行でも生成済み候補を採用できるよう変更</li>
+<li>「候補ありを全適用」では従来どおり手動ふりがなを保護</li>
+<li>ふりがな更新後にDBから値を読み返し、候補値が正しく保存されたか検証</li>
+<li>反映失敗時は無言で一覧を再読込せず、対象IDとエラー内容を表示</li>
+<li>適用結果に「適用完了 / 手動保護 / 候補なし・不正 / 失敗」の件数を表示</li>
+</ul></section>
+<section class="change-version"><h3>v0.18.2</h3><ul>
+<li>詳細入力画面・タグパネルでキーワード入力が時々受け付けられないIME不具合を修正</li>
+<li>メーカー・タイアップ・人物・タグ・シリーズ等のサジェスト入力をNative Windows EDITベースへ変更</li>
+<li>KeywordTokenInputの入力欄もNative Windows EDITへ変更</li>
+<li>Google日本語入力などで変換中Enterを押した場合はIME確定だけを行い、同じEnterで候補選択/キーワード登録しないよう分離</li>
+<li>変換確定後の通常Enterでは従来どおり候補決定・キーワード登録</li>
+<li>候補検索のUp/Down/EscapeもPython WndProcを使わずGetAsyncKeyStateポーリングで対応</li>
+<li>v0.18.1の「完全一致候補を最優先」仕様を維持</li>
+</ul></section>
+<section class="change-version"><h3>v0.18.1</h3><ul>
+<li>ID・名称・ふりがな・キーワードの候補検索順を改善</li>
+<li>完全一致する候補を必ず最上位に表示</li>
+<li>次に前方一致、その後にその他の部分一致を表示</li>
+<li>SQL側で一致度を順位付けしてからLIMITを適用し、完全一致が候補外へ埋もれる問題を修正</li>
+<li>ID前方一致では短いIDを優先し、<code>5 → 51 → 52 → 501...</code> のような自然な順序へ改善</li>
+<li>v0.18.0のWindows EXEビルド設定を維持</li>
+</ul></section>
+<section class="change-version"><h3>v0.18.0</h3><ul>
+<li>タイアップふりがなの外部取得をWikipedia本文の明示読み優先へ変更</li>
+<li>Wikipedia冒頭文の <code>『作品名』（読み）は...</code> 形式から読みを取得</li>
+<li><code>BLOOD-C</code> のような英字タイトルでも <code>ブラッド シー</code> を検出し、ゆかりスター保存用に <code>ブラッドシー</code> へ正規化</li>
+<li>タイアップ取得順を Wikipedia本文 → Wikidata P1814 → Wikipedia DEFAULTSORT → ローカル推測 に変更</li>
+<li>出典表示に「自動: Wikipedia本文」を追加</li>
+<li>バージョン定義を0.18.0へ修正</li>
+<li>PyInstallerをrequirementsへ追加</li>
+<li>source配布からEXE化できる build_exe.bat を追加</li>
+<li>配布ZIPへWindows用EXEを同梱</li>
+</ul></section>
+<section class="change-version"><h3>v0.17.9</h3><ul>
+<li>ORICONとWikipediaが外部取得0件になる原因を追跡できる診断ログを追加</li>
+<li>外部HTTP取得へChrome相当のUser-Agent/Accept/Accept-Languageヘッダを追加</li>
+<li>HTTP/URL/JSONエラーを <code>%TEMP%\YukariSong_DB_Editor_external_reading.log</code> に記録</li>
+<li>人物ふりがなを ORICON → Wikidata P1814 → ローカル推測 の順に変更</li>
+<li>タイアップふりがなを Wikidata P1814 → Wikipedia DEFAULTSORT → ローカル推測 の順に変更</li>
+<li>Wikidataの「読み仮名 (P1814)」を名称完全一致候補から取得する処理を追加</li>
+<li>ORICON検索で見つかったプロフィール件数・読み抽出成否をログへ記録</li>
+<li>Wikipedia API/DEFAULTSORT取得失敗理由をログへ記録</li>
+<li>外部取得0件の場合は修復画面に診断ログの保存先を表示</li>
+</ul></section>
+<section class="change-version"><h3>v0.17.8</h3><ul>
+<li>ORICON人物ふりがな取得が検索結果に存在しても失敗する問題を修正</li>
+<li>ORICON検索結果のプロフィールリンク判定を <code>/prof/数字/</code> の完全末尾一致から部分一致へ変更</li>
+<li><code>/prof/ID/?...</code> のようにクエリ付きリンクでも取得できるよう改善</li>
+<li>検索結果リンク文字の完全一致候補を最優先し、それ以外のプロフィール候補も検証対象へ追加</li>
+<li>候補プロフィールを最大12件確認し、プロフィール本文の人物名と読みを再検証</li>
+<li>ORICONプロフィール読み抽出を二段構えに変更</li>
+<li>人物名直後のひらがなブロックを優先し、構造差がある場合は先頭付近の順序テキストから厳格に再抽出</li>
+<li>ORICONの人物読みはひらがな表記のみを候補とし、カタカナ化して保存</li>
+</ul></section>
+<section class="change-version"><h3>v0.17.7</h3><ul>
+<li>ふりがなの外部取得先を項目ごとに分離</li>
+<li>曲名はAnisonデータベースを優先</li>
+<li>人物名はORICON芸能人名検索（types=artist）から名称完全一致プロフィールを取得し、プロフィール掲載の読みを採用</li>
+<li>タイアップは日本語Wikipediaの完全一致ページからDEFAULTSORTを取得し、カタカナのみの場合に限って採用</li>
+<li>シリーズ・タグ・メーカー・カテゴリはローカル推測を使用</li>
+<li>従来の「Anison優先で候補生成」を「外部DB優先で候補生成」へ変更</li>
+<li>外部取得できなかった項目はpykakasiのローカル推測へフォールバック</li>
+<li>出典表示に「自動: ORICON」「自動: Wikipedia」を追加</li>
+<li>ORICON検索は /prof/ID/ の名称完全一致リンクのみ追跡</li>
+<li>Wikipediaは曖昧検索を行わず、完全一致/リダイレクト解決ページのDEFAULTSORTのみ利用</li>
+</ul></section>
+<section class="change-version"><h3>v0.17.6</h3><ul>
+<li>Anison優先候補生成で全件「データベース」になる誤取得を修正</li>
+<li>HTML全体を平文化して「読み」の後方から最初のカタカナを拾う方式を廃止</li>
+<li>nsearch.html本体・検索結果一覧からはふりがなを抽出しないよう変更</li>
+<li>検索結果の名称完全一致リンクだけを追跡し、詳細ページからのみ取得</li>
+<li>tableの同一行にある「読み/フリガナ」ラベルの直後セル、またはdlのdt/dd対応だけを採用</li>
+<li>「データベース」等のサイトUI固定文言を読み候補として拒否</li>
+<li>構造化抽出できない場合はAnison候補なしとしてローカル推測へフォールバック</li>
+</ul></section>
+<section class="change-version"><h3>v0.17.5</h3><ul>
+<li>ふりがな修復画面のTreeview行追加方法を修正</li>
+<li><code>tree.insert(iid, &quot;end&quot;)</code> でiidを親項目として誤指定していた不具合を修正し、ルート直下へ正しく表示</li>
+<li>選択IDのDB直接取得が0件の場合、監査一覧から同じIDを再検索するフォールバックを追加</li>
+<li>選択行を取得できなかった場合は空画面のままにせず、対象種類とIDを警告表示</li>
+<li>修復対象が本当に0件の場合もステータスへ明示</li>
+<li>読み込んだ行は初期状態で全選択し、ローカル推測・Anison検索をすぐ実行できるよう改善</li>
+</ul></section>
+<section class="change-version"><h3>v0.17.4</h3><ul>
+<li>ふりがな修復画面の選択行読込をDBのID直接検索方式へ変更</li>
+<li>選択行を監査一覧から再フィルタする処理を廃止し、選択対象が空になる問題を修正</li>
+<li>修復対象読込に失敗した場合は無言で空表示せず、エラー内容を表示</li>
+<li>pykakasi未導入時、自動生成ボタンからその場でインストール確認できるよう変更</li>
+<li>インストール成功後はアプリを再起動せずpykakasiを再初期化</li>
+<li>pipインストール失敗時は実際のエラー出力を表示</li>
+<li>タグパネル・詳細編集・ふりがな修復のローカル推測すべてで同じエンジン確認処理を使用</li>
+<li>source版向けに install_dependencies.bat を追加</li>
+</ul></section>
+<section class="change-version"><h3>v0.17.3</h3><ul>
+<li>ふりがな修復画面へ選択行が表示されない問題を修正</li>
+<li>選択行取得をDataTab内部ヘルパー依存から、Treeview選択＋表示行データの直接参照へ変更</li>
+<li>修復画面の読み込み件数を「選択件数 / 読み込み件数」で表示して確認しやすく改善</li>
+<li>「修復対象を全件再読込」ボタンを追加</li>
+<li>ローカル推測・Anison候補生成は手動扱いの選択行でもプレビュー候補を生成可能に変更</li>
+<li>手動ふりがなの自動適用保護は維持</li>
+<li>pykakasiが利用できない場合に自動生成が無言で失敗していた問題を改善</li>
+<li>自動生成できない場合は原因を警告表示</li>
+<li>タグパネルと詳細編集の自動生成ボタンで生成失敗を明示</li>
+<li>ローカル推測画面で生成成功件数 / 失敗件数を表示</li>
+</ul></section>
+<section class="change-version"><h3>v0.17.2</h3><ul>
+<li>ふりがな対象を共通定義へ一本化し、処理ごとの対象漏れを防止</li>
+<li>曲・人物・タイアップ・シリーズ・タグ・メーカー・カテゴリの全ふりがなを統一処理</li>
+<li>ふりがな修復画面へカテゴリも追加</li>
+<li>保存時の「カタカナ以外を削除」処理も上記全項目へ適用</li>
+<li>個別ふりがな修復・検索用ふりがな同期も上記全項目へ適用</li>
+<li>一括ふりがな書き込みの内部対象定義も共通化</li>
+<li>人物・タイアップ・メーカー等も曲と同じ自動/手動判定と修復フローを使用</li>
+</ul></section>
+<section class="change-version"><h3>v0.17.1</h3><ul>
+<li>ふりがな修復画面を、現在タブで選択中の行を優先して読み込むよう修正</li>
+<li>選択行は手動判定でも画面へ表示し、内容確認できるよう変更</li>
+<li>手動扱いのふりがなはローカル推測・Anison検索・全適用で自動上書きしない</li>
+<li>レコード編集時の「カタカナ以外なので保存不可」エラーを撤廃</li>
+<li><code>.ylexa</code> 保存時にゆかりスター同様の確認ダイアログを表示</li>
+<li>「はい」でカタカナ以外を削除して保存、「いいえ」で保存を中止して手動修正へ戻る</li>
+<li>保存時削除後は検索用ふりがなも再生成し、dirty/update_timeも同期</li>
+<li>保存時自動削除の出典を「自動: 保存時削除」として記録</li>
+</ul></section>
+<section class="change-version"><h3>v0.17.0</h3><ul>
+<li>ゆかりスター互換の「ふりがなはカタカナのみ」制約をエディタ側でも検証</li>
+<li>カタカナ以外を含むふりがなが残っている場合、.ylexa保存前に対象を表示して停止</li>
+<li>過去版の「名称をそのまま入れ、ひらがなだけカタカナ化」した旧自動データを修復候補として検出</li>
+<li><code>あああ漢漢漢 → アアア漢漢漢</code> のような部分正規化データを旧自動候補として扱う</li>
+<li>完成済みの純カタカナふりがなは既存手動データとして保護</li>
+<li>カタカナ＋記号で名称コピーと一致するものは旧自動候補として区別</li>
+<li>ツールメニューに「ふりがな修復...」を追加</li>
+<li>修復画面で現在値・候補・出典・判定を一覧確認してから選択適用／一括適用可能</li>
+<li>ローカル推測候補はゆかりスターで受理可能なカタカナだけに整形</li>
+<li>Anison.info <code>nsearch.html</code> を実行時解析する検索サービスを追加</li>
+<li>Anison検索で明示的なフリガナ／読みを取得できた場合のみAnison候補として採用</li>
+<li>Anisonで取得できないデータはローカル推測へ自動フォールバック</li>
+<li>自動:推測／自動:Anison／旧自動候補／未設定／手動 の出典情報を設定に保存</li>
+<li>左タグパネルと詳細編集画面にふりがな出典表示を追加</li>
+<li>自動生成後にユーザーが手で修正した場合は手動扱いへ切り替え</li>
+<li>手動扱いの既存ふりがなは自動修復で上書きしない</li>
+</ul></section>
+<section class="change-version"><h3>v0.16.2</h3><ul>
+<li>左タグパネルの「詳細編集」「保存」をスクロール領域の外へ固定</li>
+<li>タグパネルを縦にスクロールしても保存ボタンが常に表示されるよう改善</li>
+<li>詳細編集画面の「保存」「キャンセル」をウィンドウ下部の固定フッターへ移動</li>
+<li>編集項目や関連項目が多い場合でも保存操作のために最下部までスクロールする必要をなくした</li>
+<li>固定フッターと入力フォームの間に区切り線を追加し、操作領域を視覚的に分離</li>
+<li>未選択時のタグパネル固定ボタンは無効化し、1件選択時のみ有効化</li>
+</ul></section>
+<section class="change-version"><h3>v0.16.1</h3><ul>
+<li>マウスカーソル位置に応じてスクロール対象を自動判定するホイールルーターを追加</li>
+<li>1画面に複数の縦スクロール領域がある場合、カーソル直下の最も内側の領域を優先</li>
+<li>関連項目のコンパクト欄、左タグパネル、詳細編集画面、一括書き込み画面に対応</li>
+<li>スクロールバー上にカーソルがある場合も対応する領域をスクロール</li>
+<li>内側の領域が上端/下端に達した場合は、外側のスクロール領域へ自然に伝播</li>
+<li>Treeview / Text / Listbox上では各ウィジェット標準のホイール動作を優先</li>
+<li>従来の個別MouseWheelバインドを整理して二重スクロールを防止</li>
+</ul></section>
+<section class="change-version"><h3>v0.16.0</h3><ul>
+<li>Windows標準EDITコントロール方式を正式採用</li>
+<li>Google日本語入力で日本語入力中に <code>(</code> や <code>.</code> をEnter確定すると消える問題を回避</li>
+<li>通常テキスト欄をTcl/Tk EntryのIMEキー変換経路から分離</li>
+<li>Python製WndProcは使用せず、Windows標準EDIT自身にIME処理を任せる安全な構成</li>
+<li>ネイティブ入力欄の文字変更をポーリングで検出し、既存のKeyRelease連動処理を復元</li>
+<li>フォーカス離脱をポーリングで検出し、ふりがな自動生成など既存FocusOut処理を復元</li>
+<li>Tab / Shift+Tabをポーリングで検出してTkのフォーカス順へ橋渡し</li>
+<li>readonly / disabled / get / insert / delete / focus_setを既存入力欄互換で維持</li>
+<li>左タグパネルと詳細編集画面の通常テキスト欄へ適用</li>
+<li>Windows以外では従来のttk.Entryへ自動フォールバック</li>
+<li>v0.15.8〜v0.15.10で検証したネイティブEDIT試験実装を安定化</li>
+</ul></section>
+<section class="change-version"><h3>v0.15.10 Native Edit Test</h3><ul>
+<li>v0.15.9でWM_SETTEXTへc_wchar_pを直接渡していたため発生したctypes.ArgumentErrorを修正</li>
+<li>文字列はcreate_unicode_buffer + アドレス値でSendMessageWへ渡すよう変更</li>
+<li>Python製WndProcによるWindows EDITのサブクラス化を撤廃</li>
+<li>IMEメッセージはWindows標準EDIT自身へ直接処理させる構成へ簡略化</li>
+<li>Python callback経由のGIL関連Fatal errorを回避</li>
+<li>Google日本語入力での <code>(</code> / <code>.</code> 確定動作確認を優先した試験版</li>
+</ul></section>
+<section class="change-version"><h3>v0.15.9 Native Edit Test</h3><ul>
+<li>v0.15.8のネイティブEDIT試験版で発生した64bit ctypes OverflowErrorを修正</li>
+<li>CallWindowProcWのHWND/WPARAM/LPARAM/LRESULTをポインタサイズ型で明示</li>
+<li>WNDPROCコールバックも同じ64bit型へ統一</li>
+<li>SetWindowLongPtrWのHWND型も明示</li>
+<li>Google日本語入力のIMEテスト用ネイティブEDIT構成は維持</li>
+</ul></section>
+<section class="change-version"><h3>v0.15.8 Native Edit Test</h3><ul>
+<li>通常テキスト入力欄をTcl/Tk EntryからWindows標準EDITコントロールへ試験的に変更</li>
+<li>Google日本語入力のIME確定処理をTcl/Tkのキー変換経路から迂回</li>
+<li>曲名・人物名・タイアップ名・シリーズ名・メーカー名・ふりがな・日付など通常入力欄へ適用</li>
+<li>左タグパネルと各項目の詳細編集画面の通常テキスト欄をネイティブ化</li>
+<li>get / insert / delete / readonly / disabled / FocusOut / KeyRelease互換ラッパーを実装</li>
+<li>ふりがな自動生成と重複警告用イベントは既存動作を維持</li>
+<li>サジェスト欄・キーワード欄は従来Tk部品のまま（今回の試験対象外）</li>
+<li>Windows以外ではttk.Entryへ自動フォールバック</li>
+</ul></section>
+<section class="change-version"><h3>v0.15.7</h3><ul>
+<li>IME診断ログから判明したTkの半角記号キー誤認識へ直接対策</li>
+<li>Microsoft IMEは <code>()</code> を正常に確定していたが、Tk側で <code>(</code> が <code>Down</code> キーとして扱われる現象を確認</li>
+<li><code>event.char</code> に正しい半角記号があるのに <code>keysym</code> がDown/Delete等の制御キーへ化けた場合、記号をEntryへ直接挿入</li>
+<li>誤ったDown/Delete等の標準キー処理は抑止</li>
+<li><code>(</code> に加えて <code>.</code> など同系統のASCII記号全般を対象</li>
+<li>通常の英数モード入力には干渉しない</li>
+<li>詳細編集、タグパネル、サジェスト、キーワード入力へ適用</li>
+</ul></section>
+<section class="change-version"><h3>v0.15.5</h3><ul>
+<li>Windows IMEの未確定文字列をIMM APIで直接判定する方式へ変更</li>
+<li><code>ImmGetCompositionStringW(..., GCS_COMPSTR, ...)</code> でIME変換中か確認</li>
+<li>未確定文字がある状態でEnterされた場合は <code>ImmNotifyIME(..., CPS_COMPLETE, ...)</code> で先にIMEへ確定を指示</li>
+<li>IME確定に使ったEnterではサジェスト選択・キーワード確定などアプリ側のEnter処理を実行しない</li>
+<li>通常テキスト欄でもIME確定EnterをTk側へ流さず、IME確定専用として消費</li>
+<li>v0.15.4の半角記号復元方式を廃止し、IMEコンポジション自体を扱う根本対策へ変更</li>
+</ul></section>
+<section class="change-version"><h3>v0.15.4</h3><ul>
+<li>Windows IMEで日本語入力中に半角記号をEnter確定すると <code>(</code> や <code>.</code> が消える症状へ追加対策</li>
+<li>通常テキスト入力欄でEnter直前の文字列とカーソル位置を保持し、半角記号1文字だけ消失した場合のみ自動復元</li>
+<li><code>(</code> <code>)</code> <code>.</code> などPythonの半角punctuation全般を対象</li>
+<li>日本語変換結果や通常のEnter操作は変更せず、記号だけが消えたケースに限定して補正</li>
+<li>詳細編集画面、左タグパネル、一括編集ふりがな欄、一覧検索欄へ適用</li>
+</ul></section>
+<section class="change-version"><h3>v0.15.3</h3><ul>
+<li>Windows IMEで変換待ち状態の半角記号をEnter確定した際に文字が消える不具合を修正</li>
+<li>AutocompleteEntryのEnter処理をKeyPressからKeyReleaseへ変更し、IMEの文字確定を先に通すよう改善</li>
+<li>キーワード入力欄・一覧検索欄・一括登録の区切り文字欄も同じIME安全なEnter処理へ統一</li>
+<li>候補リスト自体のEnter選択は従来どおり維持</li>
+</ul></section>
+<section class="change-version"><h3>v0.15.2</h3><ul>
+<li>ゆかりスター互換性のため関連テーブルのSequenceを0始まり・欠番なしへ自動正規化</li>
+<li>対象: 歌手・作詞・作曲・編曲・タグ・シリーズ関連</li>
+<li>既存DBを開いた時点で <code>0,2,5</code> のようなSequenceを <code>0,1,2</code> へ自動修復</li>
+<li>逆方向の関連編集で行を追加・解除した場合も保存前にSequenceを再採番</li>
+<li>Sequenceは複合主キーの一部なので、一度負数へ退避してから再採番し主キー衝突を防止</li>
+<li>自動修復した関連行にはdirty/update_timeも更新</li>
+</ul></section>
+<section class="change-version"><h3>v0.15.1</h3><ul>
+<li>v0.15.0で子編集画面を閉じる際に <code>close_editor()</code> が自己再帰していた不具合を修正</li>
+<li>関連項目から開いた人物／タイアップ等の編集画面で、&#215;・キャンセル・保存後の終了が正常に動作するよう修正</li>
+<li>子画面終了時に親編集画面／メイン画面の操作ロックを解除し、grabを親へ安全に戻す処理を整理</li>
+<li>閉じる処理の二重呼び出しにも耐えるようガードを追加</li>
+</ul></section>
+<section class="change-version"><h3>v0.15.0</h3><ul>
+<li>関連チップを右クリックして参照先の詳細編集画面を直接開けるよう対応</li>
+<li>曲の歌手・作詞・作曲・編曲・タグ・タイアップから人物／タグ／タイアップを直接編集可能</li>
+<li>タイアップのメーカー・シリーズ、逆方向の紐づき項目からも対象データを直接編集可能</li>
+<li>左タグパネル上の関連チップにも同じ右クリック編集を追加</li>
+<li>コンテキストメニューは「この人物の詳細を編集する」等、対象種類に応じて表示</li>
+<li>子の詳細編集画面を開いた場合、子を保存／閉じるまで親編集画面を操作・終了できないモーダル構造へ変更</li>
+<li>タグパネルから開いた場合も編集画面を閉じるまでメイン画面をロック</li>
+<li>参照先の名称を変更して保存すると、呼び出し元のチップ表示も即時更新</li>
+<li>詳細編集内の「新規追加」も親編集画面をロックする入れ子モーダルへ統一</li>
+</ul></section>
+<section class="change-version"><h3>v0.14.4</h3><ul>
+<li>関連項目の表示名取得をサジェスト検索依存からID完全一致の直接取得へ変更</li>
+<li>曲・人物・タイアップ・シリーズ・タグ・メーカー・カテゴリのIDから登録名を確実に取得</li>
+<li>左タグパネル、詳細編集画面、逆方向の紐づけ表示で登録名表示を統一</li>
+<li>参照先が実在する限りID文字列がそのまま表示されないよう修正</li>
+<li>参照先自体が存在しない場合のみ、整合性確認のためID表示を維持</li>
+</ul></section>
+<section class="change-version"><h3>v0.14.3</h3><ul>
+<li>ゆかりスター互換の <code>*_ruby_for_search</code> 自動生成に対応</li>
+<li>曲・人物・タイアップ・シリーズ・タグ・メーカー・カテゴリの通常よみ保存時に検索用よみを同時更新</li>
+<li>既存DBを開いた際、通常よみから検索用よみを自動補完・再同期</li>
+<li>一括追加・一括書き込み・個別編集・タグパネル編集でも検索用よみを自動更新</li>
+<li>検索用よみは濁点／半濁点除去、小書きカナ展開、長音除去、ヲ→オなど元ゆかりスターDBの実データに合わせて生成</li>
+</ul></section>
+<section class="change-version"><h3>v0.14.2</h3><ul>
+<li>コンパクトな紐づけ欄の下端をマウスドラッグして一時的に縦へ拡張できるよう改善</li>
+<li>拡張可能範囲は標準高さ76px～最大420px</li>
+<li>広げた高さは保存せず、別レコードを選択すると自動で標準高さへ戻す</li>
+<li>詳細編集画面にも逆方向の紐づけ項目を追加</li>
+<li>人物・タグ・シリーズ・メーカー・タイアップの詳細編集から、左パネルと同じ逆方向関連を確認・追加・解除可能</li>
+<li>詳細編集の逆方向関連も既存の関連テーブル／参照列へ反映</li>
+</ul></section>
+<section class="change-version"><h3>v0.14.1</h3><ul>
+<li>左パネルの逆方向「紐づいている項目」をコンパクトな固定高表示へ変更</li>
+<li>関連数が多い場合は各関連欄の内部だけ縦スクロールし、パネル全体が大量に縦へ伸びないよう改善</li>
+<li>登録済み名称はチップ表示を維持し、長い名称は折り返して全文を確認可能</li>
+<li>&#215;ボタンが長い名称の外へ押し出されにくいようチップ幅を調整</li>
+<li>サジェスト入力欄は固定高の関連一覧の下に維持し、追加・解除操作は従来どおり利用可能</li>
+</ul></section>
+<section class="change-version"><h3>v0.14.0</h3><ul>
+<li>メインタブの左編集パネルから関連情報を双方向に確認・編集できるよう拡張</li>
+<li>人物タブに「歌手／作詞／作曲／編曲として紐づく曲」を追加</li>
+<li>タグタブに「紐づいている曲」を追加</li>
+<li>シリーズタブに「紐づいているタイアップ」を追加</li>
+<li>メーカータブに「紐づいているタイアップ」を追加</li>
+<li>タイアップタブに「紐づいている曲」を追加</li>
+<li>逆方向から追加・解除しても既存の関連テーブル／参照列を直接更新し、反対側の表示へ即時反映</li>
+<li>曲もサジェスト選択対象として検索可能に拡張</li>
+</ul></section>
+<section class="change-version"><h3>v0.13.4</h3><ul>
+<li>高度な関連タブではダブルクリック編集を完全に無効化</li>
+<li>関連タブのセルをダブルクリックしても直接編集や個別編集画面を開かない安全仕様へ変更</li>
+<li>通常タブのセル直接編集は従来どおり維持</li>
+<li>関連データの変更は明示的な個別編集、または同一link_idを対象とした一括編集からのみ実行</li>
+</ul></section>
+<section class="change-version"><h3>v0.13.3</h3><ul>
+<li>一覧のカラム見出しクリック時に隣の列がソートされる不具合を修正</li>
+<li>非表示ID列を含む内部columnsではなく、実際に表示中のdisplaycolumnsを基準にソート対象を判定</li>
+<li>曲のタイアップID・タイアップのメーカーIDなど非表示列があるタブでもクリック位置とソート対象を一致</li>
+</ul></section>
+<section class="change-version"><h3>v0.13.2</h3><ul>
+<li>「選択タイアップ名をシリーズ候補へ取り込む」機能を一括追加画面から削除</li>
+<li>タイアップの一括書き込み画面の「シリーズ」欄へ［タイアップ名から新規］を追加</li>
+<li>プレビューで元にするタイアップを1件選び、そのタイアップ名をシリーズ名・自動生成したふりがなの初期値としてシリーズ追加画面へ読み込み</li>
+<li>読み込んだシリーズ名を編集して登録すると、一括書き込み画面のシリーズ欄へ自動選択</li>
+<li>関連項目の新規追加画面を初期値付きで開ける内部機能を追加</li>
+</ul></section>
+<section class="change-version"><h3>v0.13.1</h3><ul>
+<li>左側の編集パネルをタブごとの固定フォーム方式へ変更</li>
+<li>行選択のたびにウィジェットを作り直さず、1件選択時は値だけ差し替えるよう高速化</li>
+<li>未選択・複数選択時はフォームを残したまま空欄＋グレーアウト表示</li>
+<li>起動直後は曲タブ用の編集フォームを空欄・グレーアウト状態で表示</li>
+<li>パネル内の「タグパネル」見出し文字を削除し、右上の&#215;ボタンのみ維持</li>
+<li>左パネル全体を縦スクロール対応し、ウィンドウ高さを超える項目も操作可能に改善</li>
+</ul></section>
+<section class="change-version"><h3>v0.13.0</h3><ul>
+<li>Mp3tag風の常設「タグパネル」をメイン画面左側へ追加</li>
+<li>1件選択時はタグパネルから基本情報・関連情報をその場で編集／保存可能</li>
+<li>複数選択時はタグパネルから既存の一括編集画面を呼び出し可能</li>
+<li>［表示］→［タグパネル］で表示／非表示を切り替え、パネル右上の&#215;でも閉じられるよう対応</li>
+<li>タグパネルの表示状態を次回起動時まで記憶</li>
+<li>一覧セルのダブルクリックで、通常項目をセル上から直接編集可能</li>
+<li>歌手・タグ・シリーズ等の複雑な関連項目は安全のため詳細編集画面へ誘導</li>
+<li>シリーズ一括追加で、メイン画面で選択中のタイアップ名をシリーズ候補として取り込み可能</li>
+<li>取り込んだシリーズ候補は、登録前に名称・ふりがな等を自由に編集可能</li>
+</ul></section>
+<section class="change-version"><h3>v0.12.23</h3><ul>
+<li>タイアップの個別追加・編集画面でメーカーID直入力を廃止</li>
+<li>メーカー名の入力サジェスト・既存候補選択・メーカー新規追加に対応</li>
+<li>タイアップの一括書き込み対象へ「メーカー」を追加</li>
+<li>複数タイアップへ同じメーカーを「未設定だけ／すべて上書き」で設定可能</li>
+</ul></section>
+<section class="change-version"><h3>v0.12.22</h3><ul>
+<li>個別編集画面で Ctrl+Tab による「保存して次の項目を編集」に対応</li>
+<li>次の項目はメイン一覧の現在のフィルタ・ソート後の表示順を基準に決定</li>
+<li>保存によってソート位置が変わる場合でも、保存前に次の項目を確定して連続編集可能</li>
+<li>一覧の最後で Ctrl+Tab を押した場合は保存のみ行い、ステータスへ完了表示</li>
+</ul></section>
+<section class="change-version"><h3>v0.12.21</h3><ul>
+<li>高度な関連タブ（歌手・作詞・作曲・編曲・タグ・シリーズ）でlink_idの一括編集に対応</li>
+<li>複数選択時、現在のlink_idが全行で同一の場合だけ一括変更可能</li>
+<li>異なるlink_idが混在する場合は「同じlink_idが登録されている項目だけを選択してください」と警告</li>
+<li>変更先は人物・タグ・シリーズのサジェストから選択可能</li>
+<li>親ID・並び順・無効状態を維持し、link_idだけを1トランザクションで変更</li>
+</ul></section>
+<section class="change-version"><h3>v0.12.20</h3><ul>
+<li>キーワード・人物・タグ・シリーズなど複数選択項目のタグ表示を自動折り返し対応</li>
+<li>ウィンドウ幅からはみ出すタグは次の行へ自動配置し、&#215;ボタンを含めて見切れにくく改善</li>
+<li>編集画面の横幅変更時にもタグ配置を自動再計算</li>
+</ul></section>
+<section class="change-version"><h3>v0.12.19</h3><ul>
+<li>個別の追加・編集画面で Ctrl+S による保存に対応</li>
+<li>メイン画面の Ctrl+S は従来どおりDB上書き保存として維持</li>
+<li>既存の Ctrl+Enter 保存も継続</li>
+</ul></section>
+<section class="change-version"><h3>v0.12.18</h3><ul>
+<li>DB参照整合性エラーの内容を一覧の「整合性エラー」列へ表示</li>
+<li>整合性エラー検出時、該当タブをエラー行だけに自動絞り込み</li>
+<li>「整合性エラー」列を通常のカラムと同様に昇順・降順ソート可能</li>
+<li>各タブに「エラーのみ」切り替えを追加し、修正確認時に全件表示へ戻せるよう改善</li>
+</ul></section>
+<section class="change-version"><h3>v0.12.17</h3><ul>
+<li>キーワード入力を Enter キーでのみ確定するよう変更</li>
+<li>入力途中でフォーカスが外れたり保存処理が走っても、未確定文字列を自動登録しないよう修正</li>
+</ul></section>
+<section class="change-version"><h3>v0.12.16</h3><ul>
+<li>ふりがなをゆかりスター互換のカタカナ表記へ自動正規化</li>
+<li>DB読み込み時に既存のひらがな読みをカタカナへ変換</li>
+<li>単発追加・編集・一括追加・一括書き込み・自動生成時もカタカナで保存</li>
+</ul></section>
+<section class="change-version"><h3>v0.12.15</h3><ul>
+<li>一括追加画面で、1セル内の複数値に使う区切り文字をユーザー指定できるように変更。</li>
+<li>初期値は半角セミコロン <code>;</code>。指定値は設定へ保存し、次回起動時にも復元。</li>
+<li>指定した文字以外では人物・タグ・シリーズ等を自動分割しないよう変更し、名称内の <code>/</code> や <code>、</code> などの誤分割を防止。</li>
+<li>カンマ・Tab・改行はCSV/TSVの列区切りと衝突するため指定不可。空欄指定時は複数値を分割しない。</li>
+</ul></section>
+<section class="change-version"><h3>v0.12.14</h3><ul>
+<li>一括追加画面の「未登録の関連項目」一覧でカラムソートに対応。</li>
+<li>種類・入力名・ふりがな・判定・処理・既存候補を昇順／降順で並べ替え可能。</li>
+<li>同じ見出しを3回目にクリックすると元の並び順へ戻る。</li>
+</ul></section>
+<section class="change-version"><h3>v0.12.13</h3><ul>
+<li>一括追加・一括書き込み画面を縦スクロール対応にし、ウィンドウを小さくしても下側の操作部品へ移動できるよう改善。</li>
+<li>サブ画面の横幅変更時は内容幅も追従し、不要な横方向のはみ出しを抑制。</li>
+<li>一括追加内の入力欄・判定一覧など、個別スクロールを持つ部品では従来のスクロール操作を維持。</li>
+</ul></section>
+<section class="change-version"><h3>v0.12.12</h3><ul>
+<li>一括追加の判定結果一覧で、各カラム見出しクリックによる昇順・降順・解除ソートに対応。</li>
+<li>未登録タグを曲の一括追加時に検出し、人物・タイアップと同様に同時新規登録できるようにした。</li>
+<li>一括追加画面に、複数人物・タグで利用できる区切り文字の案内を追加。</li>
+<li>曲の一括追加時に未登録の人物・タイアップを検出する確認欄を追加</li>
+<li>未登録項目を新規登録、既存候補を使用、関連付けしないから選択可能</li>
+<li>新規登録する人物・タイアップのふりがなを確認・編集可能</li>
+<li>関連項目と曲を同一SQLiteトランザクションで登録し、失敗時は全件ロールバック</li>
+<li>同じ人物が複数の役割に登場しても1件だけ作成して共有</li>
+</ul></section>
+<section class="change-version"><h3>v0.12.10</h3><ul>
+<li>一括登録で空欄の年齢制限を0として扱うよう修正</li>
+<li>NOT NULL列に空文字が渡された場合も、型に応じた既定値を補完するよう修正</li>
+</ul></section>
+<section class="change-version"><h3>v0.12.9</h3><ul>
+<li>一括追加画面に区切り文字説明と動的ヘッダーを追加</li>
+<li>Tab文字を色付き表示</li>
+<li>全カラム入力をメイン一覧の表示順と名称列に統一</li>
+<li>曲のタイアップID、タイアップのメーカーIDを一覧から除外</li>
+<li>タイアップ一覧にメーカー名を表示</li>
+<li>［ファイル］メニューの最上段に［DB新規作成］を追加</li>
+<li>YukariStar仕様の全テーブルと識別情報を持つ空の .ylexa を生成</li>
+<li>作成したDBをそのまま編集対象として開くよう対応</li>
+<li>一括書き込み画面でふりがなの一括自動生成に対応</li>
+<li>プレビューで1件選択すると生成済みふりがなを入力欄へ読み込み、手動修正して上書き可能</li>
+<li>ふりがなは［決定］を押すまでDBへ反映しない</li>
+<li>一括書き込み画面のタイアップ・人物・タグ・シリーズ欄に新規追加ボタンを追加</li>
+<li>新規作成した項目を一括書き込み画面へ自動反映</li>
+<li>一括書き込み画面を複数項目の同時入力方式へ変更</li>
+<li>画面内で対象を絞り込み、未選択時は表示中全件、選択時は選択行だけへ反映</li>
+<li>［書き込み］でプレビューへ反映し、［決定］でDBへ保存する2段階方式を追加</li>
+<li>行ごとに異なる変更予定を保持できるよう改善</li>
+<li>タイアップ編集画面のシリーズ新規追加ボタンを入力欄右側へ整列</li>
+<li>タイアップ追加・編集画面にシリーズ入力欄を追加</li>
+<li>シリーズ欄へ新規追加ボタンを追加</li>
+<li>一覧で Ctrl+A を押すと、絞り込み後に表示中の行をすべて選択</li>
+</ul></section>
+<section class="change-version"><h3>v0.12.3</h3><ul>
+<li><code>version.py</code> に <code>__version__</code> を復元し、EXE起動時のImportErrorを修正</li>
+<li>バージョン情報を読み込めない場合でも起動できるフォールバックを追加</li>
+</ul></section>
+<section class="change-version"><h3>v0.12.2</h3><ul>
+<li>日本語形式・8桁数字の日付入力を自動変換</li>
+<li>各カラムの空欄データ絞り込みを追加</li>
+<li>関連項目の新規追加ボタンを入力欄右側へ整列</li>
+</ul></section>
+<section class="change-version"><h3>v0.12</h3><ul>
+<li>曲の通常編集画面へタイアップ・歌手・作詞・作曲・編曲・タグの編集を統合</li>
+<li>タイアップIDの直接入力を廃止し、タイアップ名のサジェスト選択へ変更</li>
+<li>関連編集の独立ボタン・メニューを廃止</li>
+<li>関連項目ごとに新規追加ボタンを追加し、作成後に元画面へ自動反映</li>
+<li>各追加・編集画面のキーワード入力をタグ形式へ変更</li>
+</ul></section>
+<section class="change-version"><h3>v0.11.1</h3><ul>
+<li>PyInstallerビルド時にpykakasiの辞書データを同梱するよう修正</li>
+<li>pykakasiの辞書読み込みに失敗してもアプリが起動できるようフォールバック処理を追加</li>
+</ul></section>
+<section class="change-version"><h3>v0.11</h3><ul>
+<li>名称からふりがなをローカル辞書で自動予測</li>
+<li>手動修正したふりがなを名称ごとに記憶</li>
+<li>一括追加で空欄のふりがなを自動補完</li>
+<li>サブ画面を初回はメイン画面中央へ表示</li>
+<li>サブ画面の種類ごとに前回位置とサイズを記憶</li>
+<li>上書き保存を追加</li>
+<li>保存成功時の案内を「保存できました。」へ統一</li>
+<li>名前を付けて保存したファイルを以後の上書き保存先として扱うよう変更</li>
+<li>未保存確認で「保存」を選んだ場合は現在のファイルへ保存</li>
+</ul></section>
+<section class="change-version"><h3>v0.9</h3><ul>
+<li>複数選択フィールドを削除可能なタグ表示へ変更</li>
+<li>曲の関連編集で人物・タグをタグ形式で表示</li>
+<li>一括書き込みで人物・タグ・シリーズなどを複数選択可能に変更</li>
+</ul></section>
+<section class="change-version"><h3>v0.8.1</h3><ul>
+<li>曲一覧のタイアップ・歌手・作詞・作曲・編曲・タグを名称のみの表示へ変更。</li>
+<li>タイアップ一覧のシリーズを名称のみの表示へ変更。</li>
+<li>関連付けと保存処理は従来どおり内部IDを使用。</li>
+</ul></section>
+<section class="change-version"><h3>v0.8</h3><ul>
+<li>曲一覧へタイアップ・歌手・作詞・作曲・編曲・タグの関連内容を表示</li>
+<li>タイアップ一覧へ登録シリーズを表示</li>
+<li>選択件数に応じて個別編集と一括編集を切り替えるメニューへ整理</li>
+<li>一覧の右クリックメニューを追加</li>
+<li>選択データを複製して新規追加する機能を追加</li>
+</ul></section>
+<section class="change-version"><h3>v0.7</h3><ul>
+<li>各タブのカラム幅を記憶し、次回起動時に復元</li>
+<li>各タブのソート列・優先順位・昇順／降順を記憶し、次回起動時に復元</li>
+<li>高度な関連タブの表示切り替えでタブを再構築しても表示設定を維持</li>
+</ul></section>
+<section class="change-version"><h3>v0.5</h3><ul>
+<li>一括書き込みを現在のタブに応じて切り替える共通機能へ拡張</li>
+<li>曲の一括書き込みにキーワードを追加</li>
+<li>人物・シリーズ・メーカー・タグのキーワード一括書き込みに対応</li>
+<li>タイアップのキーワード・カテゴリー・シリーズ一括書き込みに対応</li>
+</ul></section>
+<section class="change-version"><h3>v0.4</h3><ul>
+<li>ヘルプの保存説明を実際の動作に合わせて修正</li>
+<li>曲・人物などの重複判定を「名称＋キーワード」の組み合わせに変更</li>
+<li>同名データを異なるキーワードで別ID登録できるように変更</li>
+<li>単発追加時に同名・同キーワードがある場合、区別用キーワード入力を案内</li>
+<li>編集画面に同名データの赤字警告を追加</li>
+<li>一括登録の基本項目にキーワード列とキーワード設定操作を追加</li>
+</ul></section>
+<section class="change-version"><h3>v0.3</h3><ul>
+<li>曲タブに「一括書き込み」を追加</li>
+<li>複数曲へ同じタイアップ・歌手・作詞・作曲・編曲・タグIDをまとめて割り当て可能</li>
+<li>未設定だけ／追加／置換（タイアップは未設定だけ／すべて上書き）に対応</li>
+<li>入力中サジェストから既存IDを選択可能</li>
+</ul></section>
+<section class="change-version"><h3>v0.2</h3><ul>
+<li>「このツールについて」に現在のバージョンを表示</li>
+<li>作者情報とX・YouTube・GitHubへのリンクボタンを追加</li>
+</ul></section>
+<section class="change-version"><h3>v0.1</h3><ul>
+<li>一括登録で発売日を省略した場合、内部値を <code>15020</code> として登録するよう修正</li>
+<li><code>15020</code> は画面上では空欄として表示</li>
+<li>曲とタイアップの発売日に同じ空欄処理を適用</li>
+<li>開発版のバージョン管理を <code>v0.X</code> の連番方式へ変更</li>
+<li>CSV/TSV貼り付けの自動判別</li>
+<li>対象別カラム切り替え</li>
+<li>行単位の新規・重複・表記揺れ・エラー判定</li>
+<li>登録前の対象外設定と登録後の個別取消</li>
+<li>一括登録トランザクション処理</li>
+<li>一覧の見出しクリックによる昇順・降順・解除、Ctrl併用の複数列ソートを追加</li>
+<li>シリーズ、シリーズ関連、シリーズ別名をGUIとExcelへ追加</li>
+<li>メーカー別名をGUIとExcelへ追加</li>
+<li>発売日を修正ユリウス日数値ではなく YYYY-MM-DD 形式で表示・入力</li>
+<li>空の日付は内部値15020として保持</li>
+<li>保存前に元DBの全テーブルと列構成が維持されているか検査</li>
+<li>曲・人物・タグ・メーカー・タイアップ・シリーズ・別名・関連表の既知ID参照を検査</li>
+<li><code>.ylexa</code>の読み込みと別名保存に対応</li>
+<li>曲一覧の検索・直接編集に対応</li>
+<li>人物、タイアップ、タグと各関連テーブルの編集に対応</li>
+<li>ID構造を維持するExcel入出力に対応</li>
+<li>新規入力用Excelテンプレートに対応</li>
+<li>GitHub ActionsによるWindows EXEビルドに対応</li>
+<li>曲・人物・タイアップ・タグ・カテゴリ・メーカー・関連表・別名表をタブで編集可能に変更</li>
+<li>画面上からデータの追加、編集、削除／無効化に対応</li>
+<li>新規IDを既存最大番号＋1で自動採番</li>
+<li>関連表のsequence番号を曲ごとの最大値＋1で自動採番</li>
+<li>ExcelへID参照先の名称を表示する数式列とシートリンクを追加</li>
+<li>配布物をEXEとHTMLヘルプ中心の構成へ変更</li>
+<li>HTMLヘルプへ使い方、データ構造、ライセンスを統合</li>
+<li>メインウインドウの位置とサイズを終了時に記憶するように変更</li>
+<li>「削除／無効化」を「有効化／無効化」へ変更</li>
+<li>有効な行は無効化、無効な行は有効化する切替処理を追加</li>
+<li>ツール上の無効行をグレー表示するように変更</li>
+<li>Excel上の無効行を条件付き書式でグレー表示するように変更</li>
+<li>誤操作防止の確認チェック付き完全削除ダイアログを追加</li>
+<li>Deleteキーによる削除操作を廃止</li>
+<li>IDや名称中の数字を数値として扱う自然順ソートを追加</li>
+<li>曲タブに歌手・作詞・作曲・編曲・タグの集約編集画面を追加</li>
+<li>人物・タグ候補を名前、よみ、キーワード、IDから検索可能に変更</li>
+<li>候補にない人物・タグを集約画面から新規登録可能に変更</li>
+<li>関連テーブルの直接編集タブを通常は非表示に変更</li>
+<li>表示メニューから高度な関連テーブルを表示可能に変更</li>
+<li>ファイル、編集、表示、ツール、ヘルプのメニューバーを追加</li>
+<li>曲の関連情報編集で、人物・タグの入力中に候補一覧を入力欄直下へ表示</li>
+<li>候補をマウス、上下キー、Enterキーで選択可能に変更</li>
+<li>Escapeキー、入力欄外クリックで候補を閉じる操作を追加</li>
+<li>候補に完全一致がない場合、一覧末尾から新規登録可能に変更</li>
+<li>候補選択後に入力欄へフォーカスを戻し、複数項目を連続入力可能に変更</li>
+<li>同じ人物・タグの重複追加を防止</li>
+</ul></section>
+<section class="change-version"><h3>v0.6</h3><ul>
+<li>ウィンドウタイトルにバージョンを表示</li>
+<li>未保存の書き込みがある状態で終了・別ファイルを開く際に保存確認を表示</li>
+<li>保存時の参照IDエラーを行単位で検出</li>
+<li>問題行を赤くハイライトし、該当タブへ自動移動</li>
+<li>関連タブが非表示の場合は高度な関連テーブルを自動表示</li>
+<li>エラーのあるタブ名へ警告マークを表示</li>
+</ul></section>
+<section class="change-version"><h3>v0.12.1</h3><ul>
+<li>追加項目が収まるよう編集画面の既定サイズとスクロール領域を調整</li>
+<li>日付以外の入力欄を全角約20文字相当の初期幅に調整</li>
+<li>発売日欄を YYYY-MM-DD が収まる固定幅に変更</li>
+<li>編集画面の横幅に合わせて通常入力欄と関連入力欄が伸縮するよう変更</li>
+<li>関連項目の新規追加ボタンを入力欄と同じ行・高さに整列</li>
+<li>編集画面の位置とサイズを画面種類ごとに記憶</li>
+</ul></section>
       </section>
 
 
